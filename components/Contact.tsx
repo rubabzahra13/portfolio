@@ -2,17 +2,17 @@
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 bg-[#0f0f14]">
+    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0f0f14]">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-display text-3xl font-bold text-white mb-4">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
           Get in touch
         </h2>
-        <p className="text-zinc-400 mb-10">
+        <p className="text-zinc-400 mb-8 sm:mb-10 text-sm sm:text-base">
           Open to full-stack and AI-assisted development roles. Have a project? Say hello.
         </p>
         <a
           href="mailto:rubabzahra248@gmail.com"
-          className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm sm:text-base break-all"
           aria-label="Email"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

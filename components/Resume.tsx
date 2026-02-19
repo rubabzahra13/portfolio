@@ -2,15 +2,15 @@
 
 export function Resume() {
   return (
-    <section id="resume" className="py-20 px-6 bg-[#18181f]">
+    <section id="resume" className="py-16 sm:py-20 px-4 sm:px-6 bg-[#18181f]">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-display text-2xl font-bold text-white mb-4">
+        <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
           CV
         </h2>
-        <p className="text-zinc-400 mb-8">
+        <p className="text-zinc-400 mb-6 sm:mb-8 text-sm sm:text-base">
           Full CV available on request.
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
           <a
             href="https://www.linkedin.com/in/nuzhat-rubab-zahra-ab553b237"
             target="_blank"

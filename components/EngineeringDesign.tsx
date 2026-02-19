@@ -37,19 +37,19 @@ const SERVICES = [
 
 export function EngineeringDesign() {
   return (
-    <section id="about" className="py-24 px-6 bg-[#18181f]">
+    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#18181f]">
       <div className="max-w-5xl mx-auto">
-        <h2 className="font-display text-3xl font-bold text-white mb-4">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
           Engineering &amp; Design
         </h2>
-        <p className="text-zinc-400 max-w-2xl mb-14">
+        <p className="text-zinc-400 max-w-2xl mb-10 sm:mb-14 text-sm sm:text-base">
           I combine technical depth with design sensibility to build complete products. Not just slides—live demos and production-ready code.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {SERVICES.map((s) => (
             <div
               key={s.title}
-              className="rounded-xl bg-[#22222c] border border-zinc-800 p-6 flex flex-col items-start"
+              className="rounded-xl bg-[#22222c] border border-zinc-800 p-4 sm:p-6 flex flex-col items-start"
             >
               <span className="text-zinc-400 mb-4">{s.icon}</span>
               <h3 className="text-white font-semibold">{s.title}</h3>

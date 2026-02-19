@@ -14,13 +14,13 @@ export default async function ProjectPage({ params }: Props) {
     <div className="min-h-screen bg-[#0f0f14]">
       {/* Top bar: full width, clear navigation */}
       <header className="border-b border-zinc-800 bg-[#0f0f14]/95 backdrop-blur">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="font-display text-lg font-semibold text-white hover:text-zinc-300">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+          <Link href="/" className="font-display text-base sm:text-lg font-semibold text-white hover:text-zinc-300 truncate min-w-0">
             Nuzhat Rubab Zahra
           </Link>
           <Link
             href="/#projects"
-            className="text-zinc-400 hover:text-white text-sm font-medium transition-colors"
+            className="text-zinc-400 hover:text-white text-xs sm:text-sm font-medium transition-colors shrink-0"
           >
             ← Back to portfolio
           </Link>
@@ -41,25 +41,25 @@ export default async function ProjectPage({ params }: Props) {
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" aria-hidden />
-          <div className="relative max-w-5xl mx-auto px-6 py-20 sm:py-28">
-            <h1 className="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight">
+          <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
               {project.name}
             </h1>
             {project.tagline && (
-              <p className="mt-4 text-white/90 text-lg max-w-2xl">
+              <p className="mt-3 sm:mt-4 text-white/90 text-base sm:text-lg max-w-2xl">
                 {project.tagline}
               </p>
             )}
           </div>
         </section>
       ) : (
-        <section className={`bg-gradient-to-br ${project.gradient} py-20 sm:py-28`}>
-          <div className="max-w-5xl mx-auto px-6">
-            <h1 className="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight">
+        <section className={`bg-gradient-to-br ${project.gradient} py-16 sm:py-20 md:py-28`}>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
               {project.name}
             </h1>
             {project.tagline && (
-              <p className="mt-4 text-white/90 text-lg max-w-2xl">
+              <p className="mt-3 sm:mt-4 text-white/90 text-base sm:text-lg max-w-2xl">
                 {project.tagline}
               </p>
             )}
@@ -68,8 +68,8 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       {/* Main content: readable width, clear sections */}
-      <div className="max-w-3xl mx-auto px-6 py-16">
-        <p className="text-zinc-300 text-lg leading-relaxed mb-14">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <p className="text-zinc-300 text-base sm:text-lg leading-relaxed mb-10 sm:mb-14">
           {project.description}
         </p>
 
@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }: Props) {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-violet-400 hover:text-violet-300 font-medium text-sm mr-4"
+                    className="text-violet-400 hover:text-violet-300 font-medium text-sm"
                   >
                     {link.label} →
                   </a>
@@ -130,8 +130,8 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Screenshots: full-bleed section, large images */}
       {project.images.length > 0 && (
-        <section className="border-t border-zinc-800 bg-[#18181f] py-16">
-          <div className="max-w-5xl mx-auto px-6">
+        <section className="border-t border-zinc-800 bg-[#18181f] py-12 sm:py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
             <h2 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
               Screenshots
             </h2>
@@ -159,8 +159,8 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       {/* Bottom nav */}
-      <footer className="border-t border-zinc-800 py-10">
-        <div className="max-w-5xl mx-auto px-6">
+      <footer className="border-t border-zinc-800 py-8 sm:py-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <Link
             href="/#projects"
             className="text-zinc-400 hover:text-white text-sm font-medium transition-colors"

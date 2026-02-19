@@ -38,20 +38,20 @@ export function ProjectDetail({ project, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-detail-title"
     >
       <div
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#18181f] border border-zinc-800 shadow-2xl"
+        className="relative w-full max-w-3xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto rounded-xl sm:rounded-2xl bg-[#18181f] border border-zinc-800 shadow-2xl mx-2 sm:mx-0"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-white/5 transition-colors z-10"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/5 transition-colors z-10 touch-manipulation"
           aria-label="Close"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,8 +63,8 @@ export function ProjectDetail({ project, onClose }: Props) {
           <span className="text-white/80 font-mono text-3xl">&#62;_</span>
         </div>
 
-        <div className="p-6 sm:p-8">
-          <h2 id="project-detail-title" className="font-display text-2xl font-bold text-white mb-2">
+        <div className="p-4 sm:p-6 md:p-8">
+          <h2 id="project-detail-title" className="font-display text-xl sm:text-2xl font-bold text-white mb-2">
             {project.name}
           </h2>
           {project.tagline && (

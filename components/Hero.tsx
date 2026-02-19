@@ -6,19 +6,19 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center bg-[#0f0f14] pt-28 pb-20 px-6"
+      className="relative min-h-screen flex flex-col justify-center bg-[#0f0f14] pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6"
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           <div className="order-2 lg:order-1 text-center lg:text-left lg:max-w-xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-zinc-500 px-4 py-1.5 mb-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-zinc-500 px-3 sm:px-4 py-1.5 mb-6 sm:mb-8">
               <span className="w-2 h-2 rounded-full bg-emerald-400" aria-hidden />
-              <span className="text-zinc-400 text-sm font-medium">Available for new projects</span>
+              <span className="text-zinc-400 text-xs sm:text-sm font-medium">Available for new projects</span>
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+            <h1 className="font-display text-3xl min-[480px]:text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight">
               Building products that <span className="text-gradient">ship.</span>
             </h1>
-            <p className="mt-6 text-zinc-400 text-lg leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-zinc-400 text-base sm:text-lg leading-relaxed">
               Full-stack and AI-assisted development—from idea to working prototype in days. SaaS dashboards, CRM flows, and AI tools that scale.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -42,8 +42,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end mt-10 lg:mt-0">
-            <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[400px] lg:h-[400px]">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end mt-8 sm:mt-10 lg:mt-0">
+            <div className="relative w-[220px] h-[220px] min-[480px]:w-[280px] min-[480px]:h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[400px] lg:h-[400px]">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-violet-500/30 to-pink-500/30 blur-xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-zinc-700/50">
                 <Image

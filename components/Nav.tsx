@@ -26,7 +26,7 @@ export function Nav() {
         scrolled ? 'bg-[#0f0f14]/95 backdrop-blur-md border-b border-zinc-800' : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         <Link
           href="#hero"
           className="font-display text-xl font-semibold text-white hover:text-zinc-300 transition-colors"
@@ -64,13 +64,13 @@ export function Nav() {
       </nav>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[#18181f] border-t border-zinc-800 px-6 py-4">
-          <ul className="flex flex-col gap-4">
+        <div className="md:hidden bg-[#18181f] border-t border-zinc-800 px-4 sm:px-6 py-4">
+          <ul className="flex flex-col gap-3">
             {LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block text-zinc-400 hover:text-white font-medium"
+                  className="block py-2 text-zinc-400 hover:text-white font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
