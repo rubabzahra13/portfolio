@@ -9,8 +9,8 @@ export function Hero() {
       className="relative min-h-screen flex flex-col justify-center bg-[#0f0f14] pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6"
     >
       <div className="max-w-6xl mx-auto w-full">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-          <div className="order-2 lg:order-1 text-center lg:text-left lg:max-w-xl">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10 lg:gap-16">
+          <div className="order-2 lg:order-1 text-center lg:text-left lg:max-w-xl min-w-0">
             <div className="inline-flex items-center gap-2 rounded-full border border-zinc-500 px-3 sm:px-4 py-1.5 mb-6 sm:mb-8">
               <span className="w-2 h-2 rounded-full bg-emerald-400" aria-hidden />
               <span className="text-zinc-400 text-xs sm:text-sm font-medium">Available for new projects</span>
@@ -42,8 +42,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end mt-8 sm:mt-10 lg:mt-0">
-            <div className="relative w-[220px] h-[220px] min-[480px]:w-[280px] min-[480px]:h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[400px] lg:h-[400px]">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end mt-0 mb-2 lg:mb-0 shrink-0">
+            <div className="relative w-[220px] h-[220px] min-[400px]:w-[260px] min-[400px]:h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[400px] lg:h-[400px]">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-violet-500/30 to-pink-500/30 blur-xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-zinc-700/50">
                 <Image
