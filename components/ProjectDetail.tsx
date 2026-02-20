@@ -14,6 +14,10 @@ export type ProjectDetailData = {
   images: { src: string; alt: string }[];
   /** Optional caption for the screenshots section (e.g. "Client (landlord / care provider) and admin dashboards") */
   screenshotsCaption?: string;
+  /** Optional card thumbnail shown on the projects grid (path under /images/...) */
+  cardImage?: string;
+  /** Optional object-position for card image (e.g. "object-top", "object-[center_25%]") to show a specific part */
+  cardImagePosition?: string;
   gradient: string;
 };
 

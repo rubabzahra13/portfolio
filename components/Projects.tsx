@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { PROJECTS_FEATURED } from '@/data/projects';
 
@@ -31,8 +32,18 @@ export function Projects() {
               rel="noopener noreferrer"
               className="rounded-xl overflow-hidden bg-[#22222c] border border-zinc-800 flex flex-col text-left hover:border-zinc-600 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:ring-offset-[#18181f]"
             >
-              <div className={`h-28 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                <span className="text-white/80 font-mono text-2xl">&#62;_</span>
+              <div className={`relative h-28 flex items-center justify-center overflow-hidden ${project.cardImage ? 'bg-[#22222c]' : `bg-gradient-to-br ${project.gradient}`}`}>
+                {project.cardImage ? (
+                  <Image
+                    src={project.cardImage}
+                    alt=""
+                    fill
+                    className={`object-cover ${project.cardImagePosition ?? ''}`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                ) : (
+                  <span className="text-white/80 font-mono text-2xl">&#62;_</span>
+                )}
               </div>
               <div className="p-4 sm:p-5 flex-1 flex flex-col">
                 <div className="flex flex-wrap gap-2 mb-2">

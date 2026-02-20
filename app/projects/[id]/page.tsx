@@ -179,5 +179,10 @@ export function generateStaticParams() {
     { id: 'ai-alchemist' },
     { id: 'content-strategist' },
     { id: 'ppf-website' },
+    { id: 'video-transcription' },
+    { id: 'zoom-summaries-downloader' },
+    { id: 'ecommerce-mvp' },
+    { id: 'image-to-forms-automation' },
+    { id: 'portfolio-3d-mascot' },
   ];
 }
