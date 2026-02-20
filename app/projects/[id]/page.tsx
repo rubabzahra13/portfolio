@@ -11,22 +11,7 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <div className="min-h-screen bg-[#0f0f14]">
-      {/* Top bar: full width, clear navigation */}
-      <header className="border-b border-zinc-800 bg-[#0f0f14]/95 backdrop-blur">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
-          <Link href="/" className="font-display text-base sm:text-lg font-semibold text-white hover:text-zinc-300 truncate min-w-0">
-            Nuzhat Rubab Zahra
-          </Link>
-          <Link
-            href="/#projects"
-            className="text-zinc-400 hover:text-white text-xs sm:text-sm font-medium transition-colors shrink-0"
-          >
-            ← Back to portfolio
-          </Link>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-[#0f0f14] pt-16 sm:pt-20">
       {/* Hero: image + overlay for Care Property Hub, gradient for others */}
       {project.id === 'care-property-hub' ? (
         <section className="relative min-h-[320px] sm:min-h-[380px] flex flex-col justify-end">
