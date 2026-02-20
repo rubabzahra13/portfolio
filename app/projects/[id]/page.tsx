@@ -136,6 +136,9 @@ export default async function ProjectPage({ params }: Props) {
                     className="w-full h-auto object-cover"
                     sizes="(max-width: 1024px) 100vw, 1024px"
                   />
+                  <figcaption className="mt-2 text-zinc-400 text-sm">
+                    {img.caption ?? img.alt}
+                  </figcaption>
                 </figure>
               ))}
             </div>

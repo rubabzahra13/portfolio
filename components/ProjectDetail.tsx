@@ -11,7 +11,7 @@ export type ProjectDetailData = {
   points: string[];
   tech: string[];
   links: { label: string; href: string }[];
-  images: { src: string; alt: string }[];
+  images: { src: string; alt: string; caption?: string }[];
   /** Optional caption for the screenshots section (e.g. "Client (landlord / care provider) and admin dashboards") */
   screenshotsCaption?: string;
   /** Optional card thumbnail shown on the projects grid (path under /images/...) */
@@ -134,6 +134,9 @@ export function ProjectDetail({ project, onClose }: Props) {
                       className="w-full h-auto object-cover"
                       sizes="(max-width: 768px) 100vw, 800px"
                     />
+                    <p className="mt-2 px-2 text-zinc-400 text-xs sm:text-sm">
+                      {img.caption ?? img.alt}
+                    </p>
                   </div>
                 ))}
               </div>

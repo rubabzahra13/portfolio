@@ -28,7 +28,7 @@ export function Nav() {
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         <Link
-          href="#hero"
+          href="/"
           className="font-display text-xl font-semibold text-white hover:text-zinc-300 transition-colors"
         >
           N.R.Z
