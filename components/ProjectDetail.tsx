@@ -18,6 +18,8 @@ export type ProjectDetailData = {
   cardImage?: string;
   /** Optional object-position for card image (e.g. "object-top", "object-[center_25%]") to show a specific part */
   cardImagePosition?: string;
+  /** Optional hero background image for the project detail page intro (path under /images/...) */
+  heroImage?: string;
   gradient: string;
 };
 
@@ -84,7 +86,7 @@ export function ProjectDetail({ project, onClose }: Props) {
               <ul className="space-y-2">
                 {project.points.map((point, i) => (
                   <li key={i} className="flex gap-2 text-zinc-400 text-sm leading-relaxed">
-                    <span className="text-violet-400 shrink-0">•</span>
+                    <span className="text-orange-400 shrink-0">•</span>
                     {point}
                   </li>
                 ))}
@@ -108,7 +110,7 @@ export function ProjectDetail({ project, onClose }: Props) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-violet-400 font-medium text-sm hover:text-violet-300 inline-flex items-center gap-1"
+                  className="text-orange-400 font-medium text-sm hover:text-orange-300 inline-flex items-center gap-1"
                 >
                   {link.label}
                   <span aria-hidden>→</span>

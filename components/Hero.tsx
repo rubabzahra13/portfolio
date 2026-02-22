@@ -6,9 +6,21 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center bg-[#0f0f14] pt-20 sm:pt-28 pb-12 sm:pb-20 px-4 sm:px-6"
+      className="relative min-h-screen flex flex-col justify-center pt-20 sm:pt-28 pb-12 sm:pb-20 px-4 sm:px-6 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto w-full">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/me/photo-1442458017215-285b83f65851.avif"
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 z-[1] bg-[#0f0f14]/85" aria-hidden />
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
         {/* Mobile: stacked layout with guaranteed spacing; desktop: row */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10 lg:gap-16">
           {/* Mobile: pill first */}
@@ -22,7 +34,7 @@ export function Hero() {
           {/* Image: second on mobile; clip blur so it never overlaps text below */}
           <div className="order-2 lg:order-2 flex justify-center lg:justify-end shrink-0 relative z-0">
             <div className="relative w-[200px] h-[200px] min-[375px]:w-[240px] min-[375px]:h-[240px] sm:w-[280px] sm:h-[280px] lg:w-[400px] lg:h-[400px] rounded-2xl overflow-hidden lg:overflow-visible">
-              <div className="absolute inset-0 lg:-inset-1 rounded-2xl bg-gradient-to-br from-violet-500/30 to-pink-500/30 blur-lg sm:blur-xl pointer-events-none" aria-hidden />
+              <div className="absolute inset-0 lg:-inset-1 rounded-2xl bg-gradient-to-br from-orange-400/40 to-amber-600/40 blur-lg sm:blur-xl pointer-events-none" aria-hidden />
               <div className="relative size-full rounded-2xl overflow-hidden border border-zinc-700/50">
                 <Image
                   src="/images/me/me.jpeg?v=hero"

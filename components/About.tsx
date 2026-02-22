@@ -22,12 +22,12 @@ export function About() {
               I lead full-stack and agentic AI work at BrandScaling and Adminless (UK). Based in Rawalpindi.
             </p>
           </div>
-          <div className="rounded-xl bg-gradient-to-br from-violet-900/40 to-indigo-900/40 border border-zinc-700/50 p-4 sm:p-6">
+          <div className="rounded-xl bg-gradient-to-br from-orange-900/40 to-amber-900/40 border border-zinc-700/50 p-4 sm:p-6">
             <h3 className="text-white font-semibold mb-4">Current focus</h3>
             <ul className="space-y-3">
               {FOCUS.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-zinc-300 text-sm">
-                  <span className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${i === 0 ? 'bg-emerald-400' : 'bg-violet-400'}`} aria-hidden />
+                  <span className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${i === 0 ? 'bg-emerald-400' : 'bg-orange-400'}`} aria-hidden />
                   {item}
                 </li>
               ))}

@@ -103,7 +103,7 @@ export function Skills() {
                 key={item.title}
                 className="rounded-xl bg-[#18181f] border border-zinc-800 p-4 sm:p-5 flex flex-col"
               >
-                <p className="text-violet-400 font-semibold text-sm mb-1.5">{item.title}</p>
+                <p className="text-orange-400 font-semibold text-sm mb-1.5">{item.title}</p>
                 <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">{item.line}</p>
               </div>
             ))}

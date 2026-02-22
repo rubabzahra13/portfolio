@@ -15,13 +15,13 @@ export function Resume() {
             href="https://www.linkedin.com/in/nuzhat-rubab-zahra-ab553b237"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-violet-400 font-medium hover:text-violet-300"
+            className="text-orange-400 font-medium hover:text-orange-300"
           >
             LinkedIn
           </a>
           <a
             href="mailto:rubabzahra248@gmail.com?subject=CV request"
-            className="text-violet-400 font-medium hover:text-violet-300"
+            className="text-orange-400 font-medium hover:text-orange-300"
           >
             Email for CV
           </a>

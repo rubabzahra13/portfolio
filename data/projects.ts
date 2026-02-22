@@ -18,6 +18,7 @@ export const PROJECTS_FEATURED: (ProjectDetailData & { tags: string[] })[] = [
       { label: 'Admin Dashboard', href: 'https://admin.carepropertyhub.co.uk/' },
     ],
     screenshotsCaption: 'Client (landlord / care provider) and admin dashboards from Care Property Hub.',
+    heroImage: '/images/carepropertyhub/hero-bg.png',
     images: [
       { src: '/images/carepropertyhub/screencapture-app-carepropertyhub-co-uk-dashboard-2026-02-19-09_22_51.png', alt: 'Care Property Hub — app dashboard', caption: 'App — main dashboard' },
       { src: '/images/carepropertyhub/screencapture-app-carepropertyhub-co-uk-dashboard-2026-02-19-09_25_48.png', alt: 'Care Property Hub — app dashboard', caption: 'App — dashboard view' },
@@ -147,13 +148,16 @@ export const PROJECTS_FEATURED: (ProjectDetailData & { tags: string[] })[] = [
     id: 'ecommerce-mvp',
     name: 'E-commerce Store Prototypes & MVP (Vibe-Coded)',
     tagline: 'Lovable, Cursor, full-stack (2025)',
+    heroImage: '/images/nexus/photo-1598775378121-e24f7062c151.avif',
     description: 'Initial store prototypes with Lovable, iterated into functional flows with Cursor; UX-driven pages, conversion-oriented UI, quick iteration from feedback.',
     points: [
       'Built initial store prototypes using Lovable and iterated into functional flows using Cursor for rapid delivery.',
       'Focused on UX-driven pages, conversion-oriented UI, and quick iteration cycles based on feedback.',
     ],
     tech: ['Lovable', 'Cursor', 'Full-stack', 'UX', 'Vibe coding'],
-    links: [],
+    links: [
+      { label: 'Live Demo', href: 'https://nexus-ecommerce-two.vercel.app?_vercel_share=YOfHWqWXbjoYjFiskBHZXYf4KSaFRW7x' },
+    ],
     images: [],
     cardImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
     cardImagePosition: 'object-center',

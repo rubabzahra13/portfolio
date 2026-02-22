@@ -12,12 +12,12 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-[#0f0f14] pt-16 sm:pt-20">
-      {/* Hero: image + overlay for Care Property Hub, gradient for others */}
-      {project.id === 'care-property-hub' ? (
+      {/* Hero: image + overlay when heroImage set, gradient otherwise */}
+      {project.heroImage ? (
         <section className="relative min-h-[320px] sm:min-h-[380px] flex flex-col justify-end">
           <div className="absolute inset-0">
             <Image
-              src="/images/carepropertyhub/hero-bg.png"
+              src={project.heroImage}
               alt=""
               fill
               className="object-cover object-center"
@@ -77,7 +77,7 @@ export default async function ProjectPage({ params }: Props) {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-violet-400 hover:text-violet-300 font-medium text-sm"
+                    className="text-orange-400 hover:text-orange-300 font-medium text-sm"
                   >
                     {link.label} →
                   </a>
@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: Props) {
             <ul className="space-y-4">
               {project.points.map((point, i) => (
                 <li key={i} className="text-zinc-300 leading-relaxed flex gap-3">
-                  <span className="text-violet-400 shrink-0 mt-0.5">•</span>
+                  <span className="text-orange-400 shrink-0 mt-0.5">•</span>
                   {point}
                 </li>
               ))}
