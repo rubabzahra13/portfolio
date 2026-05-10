@@ -1,174 +1,141 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import TechCube from "./TechCube";
 import { ArrowDown, Bot } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ 
+    document.getElementById("about")?.scrollIntoView({
       behavior: "smooth",
-      block: "start"
+      block: "start",
     });
   };
 
   const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ 
+    document.getElementById("projects")?.scrollIntoView({
       behavior: "smooth",
-      block: "start"
-    });
-  };
-
-  const scrollToClarrie = () => {
-    document.getElementById("clarrie")?.scrollIntoView({ 
-      behavior: "smooth",
-      block: "start"
+      block: "start",
     });
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-background pt-16 relative overflow-hidden border-b-2 border-gray-800/50">
-      {/* Enhanced Animated Background - Intense Glows */}
-      <motion.div style={{ y, opacity }} className="absolute inset-0 pointer-events-none">
-        {/* Larger, brighter glowing orbs */}
-        <div className="absolute top-10 left-0 md:left-10 w-72 md:w-[500px] h-72 md:h-[500px] bg-accent/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 md:right-10 w-80 md:w-[600px] h-80 md:h-[600px] bg-secondary/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-        <div className="absolute top-1/3 left-1/3 w-64 md:w-96 h-64 md:h-96 bg-tertiary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '3s' }}></div>
-        
-        {/* Additional intense glow layers */}
-        <div className="absolute top-1/2 right-1/4 w-48 md:w-72 h-48 md:h-72 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '5s' }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-56 md:w-80 h-56 md:h-80 bg-secondary/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s', animationDuration: '3.5s' }}></div>
-      </motion.div>
+    <section className="relative flex min-h-[100dvh] min-h-screen items-center justify-center overflow-x-clip border-b border-border bg-background pt-14 sm:pt-16">
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/hero-bg.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-[56%_center] sm:object-[52%_center]"
+          sizes="100vw"
+        />
+        {/* Light veil: mostly transparent so the artwork reads; slightly stronger on the left for copy */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-background/75 via-background/35 to-transparent sm:from-background/60 sm:via-background/28 sm:to-transparent"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-[#0d1117]/12 sm:bg-[#0d1117]/8" aria-hidden />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 w-full relative z-10">
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Content - REDESIGNED FOR IMPACT */}
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center gap-10 md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full order-2 md:order-1"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="order-2 w-full md:order-1"
           >
-            {/* Eyebrow Text - Attention Grabber */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="mb-4"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full">
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                <span className="text-accent text-sm md:text-base font-semibold">AI-Powered Development Studio</span>
-              </div>
-            </motion.div>
+            <p className="mb-4 inline-flex items-center rounded-md border border-border bg-elevated px-2.5 py-1 text-xs font-medium uppercase tracking-widest text-text-muted">
+              Software studio
+            </p>
 
-            {/* Massive Impact Headline */}
             <motion.h1
-              className="text-4xl md:text-7xl font-black text-white mb-6 leading-[1.1]"
-              initial={{ opacity: 0, y: 20 }}
+              className="mb-4 text-balance text-[clamp(1.875rem,4vw+0.5rem,3.25rem)] font-semibold leading-[1.12] tracking-tight text-text-primary sm:mb-5"
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.08, duration: 0.45 }}
             >
-              Build Software That{" "}
-              <span className="bg-gradient-to-r from-accent via-tertiary to-secondary bg-clip-text text-transparent">
-                Actually Ships
-              </span>
+              Production web products,{" "}
+              <span className="text-accent">shipped with care</span>
             </motion.h1>
 
-            {/* Value Proposition */}
             <motion.p
-              className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed font-light"
-              initial={{ opacity: 0, y: 20 }}
+              className="mb-8 max-w-xl text-pretty text-base leading-relaxed text-text-secondary sm:text-lg"
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.14, duration: 0.45 }}
             >
-              We turn complex ideas into production-ready applications.{" "}
-              <span className="text-white font-medium">Fast. Scalable. Reliable.</span>
+              Full-stack engineering and applied AI—clear scope, measurable outcomes, and
+              maintainable codebases.
             </motion.p>
 
-            {/* Social Proof Pills */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <motion.ul
+              className="mb-8 flex flex-wrap gap-2 text-sm text-text-muted"
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4 mb-8"
+              transition={{ delay: 0.2, duration: 0.45 }}
             >
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>GPT-4 Powered</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <svg className="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Enterprise Ready</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <svg className="w-5 h-5 text-tertiary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>24/7 Support</span>
-              </div>
-            </motion.div>
-
-            {/* Reimagined CTA Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              <Link href="/chat" className="w-full sm:w-auto">
-                <motion.div
-                  className="group relative bg-gradient-to-r from-accent to-secondary text-white px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-accent/50 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+              {["Next.js & React", "TypeScript", "Cloud-native"].map((item) => (
+                <li
+                  key={item}
+                  className="rounded-md border border-border bg-surface/80 px-2.5 py-1 font-medium text-text-secondary"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  <Bot className="w-6 h-6 relative z-10" />
-                  <span className="relative z-10">Meet Clarrie AI</span>
-                </motion.div>
+                  {item}
+                </li>
+              ))}
+            </motion.ul>
+
+            <motion.div
+              className="flex w-full flex-col gap-3 sm:flex-row sm:items-center"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.26, duration: 0.45 }}
+            >
+              <Link
+                href="/chat"
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-border-strong bg-accent px-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:h-10 sm:w-auto sm:px-4"
+              >
+                <Bot className="h-4 w-4 shrink-0 opacity-95" aria-hidden />
+                Meet Villi AI
               </Link>
 
               <motion.button
+                type="button"
                 onClick={scrollToProjects}
-                className="group border-2 border-gray-700 hover:border-accent text-white px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold text-lg hover:bg-accent/5 transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-border bg-transparent px-5 text-sm font-semibold text-text-primary transition-colors hover:bg-subtle sm:h-10 sm:w-auto sm:px-4"
+                whileTap={{ scale: 0.99 }}
               >
-                <span>See Our Work</span>
-                <ArrowDown className="group-hover:translate-y-1 transition-transform w-5 h-5" />
+                View work
+                <ArrowDown className="h-4 w-4 opacity-80" aria-hidden />
               </motion.button>
             </motion.div>
           </motion.div>
 
-          {/* Right Content - 3D Cube - Better mobile sizing */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[300px] md:h-[500px] flex items-center justify-center w-full order-1 md:order-2 mb-4 md:mb-0" // Cube comes first on mobile
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.06 }}
+            className="order-1 flex h-[200px] w-full min-h-0 items-center justify-center sm:h-[280px] md:order-2 md:h-[min(52vh,480px)]"
           >
-            <TechCube />
+            <div className="flex h-full w-full max-w-[min(100%,24rem)] origin-center scale-[0.78] items-center justify-center sm:scale-[0.88] md:scale-100">
+              <TechCube />
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator - NOW CLICKABLE */}
       <motion.button
+        type="button"
         onClick={scrollToAbout}
-        className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 text-accent hover:text-white transition-colors cursor-pointer group"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
-        whileHover={{ scale: 1.2 }}
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 rounded-full p-2 text-text-muted transition-colors hover:bg-subtle hover:text-text-primary md:bottom-8"
+        animate={{ y: [0, 4, 0] }}
+        transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+        aria-label="Scroll to About"
       >
+        <ArrowDown className="h-5 w-5" />
       </motion.button>
     </section>
   );

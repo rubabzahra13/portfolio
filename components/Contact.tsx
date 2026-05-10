@@ -53,85 +53,76 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 bg-background relative overflow-hidden border-b-2 border-gray-800/50">
-      {/* Background Effect - Matching Hero Section Vibrancy */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-tertiary/28 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '3s' }}></div>
-        {/* Additional layers for intensity */}
-        <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '5s' }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-secondary/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s', animationDuration: '3.5s' }}></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contact" className="relative overflow-x-clip border-b border-border bg-background py-20 sm:py-24">
+      <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-10 text-center sm:mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get In <span className="text-accent">Touch</span>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-text-muted">Contact</p>
+          <h2 className="mb-3 text-balance text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl md:text-4xl">
+            Get in touch
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Let's discuss your next project
+          <p className="mx-auto max-w-xl text-pretty text-base text-text-secondary sm:text-lg">
+            Tell us about your timeline, constraints, and what success looks like—we reply within one business day.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-br from-surface to-background border-2 border-gray-800 rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-white mb-4">Let's talk about everything!</h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                Don't like forms? Send us an email. 👋
+            <div className="min-w-0 rounded-lg border border-border bg-surface p-5 shadow-card sm:p-8">
+              <h3 className="mb-2 text-balance text-lg font-semibold text-text-primary sm:text-xl">
+                Prefer email?
+              </h3>
+              <p className="mb-8 text-sm leading-relaxed text-text-secondary sm:text-base">
+                Skip the form—reach us directly. We read every message.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 p-4 bg-background/50 rounded-xl border border-gray-800 hover:border-accent/30 transition-colors">
-                  <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-accent" size={20} />
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 rounded-md border border-border bg-background p-3 transition-colors hover:border-border-strong">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-elevated">
+                    <Mail className="text-accent" size={18} aria-hidden />
                   </div>
                   <div>
-                    <p className="text-gray-500 text-sm font-medium">Email</p>
-                    <p className="text-white font-semibold">hello@clarity.com</p>
+                    <p className="text-xs font-medium text-text-muted">Email</p>
+                    <p className="font-semibold text-text-primary">hello@veloctech.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-background/50 rounded-xl border border-gray-800 hover:border-accent/30 transition-colors">
-                  <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-accent" size={20} />
+                <div className="flex items-center gap-3 rounded-md border border-border bg-background p-3 transition-colors hover:border-border-strong">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-elevated">
+                    <MapPin className="text-accent" size={18} aria-hidden />
                   </div>
                   <div>
-                    <p className="text-gray-500 text-sm font-medium">Location</p>
-                    <p className="text-white font-semibold">San Francisco, CA</p>
+                    <p className="text-xs font-medium text-text-muted">Location</p>
+                    <p className="font-semibold text-text-primary">San Francisco, CA</p>
                   </div>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="pt-8 mt-8 border-t border-gray-800">
-                <p className="text-sm font-medium text-gray-400 mb-4">Connect with us</p>
-                <div className="flex gap-3">
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">Social</p>
+                <div className="flex gap-2">
                   {socialLinks.map((social) => (
-                    <motion.a
+                    <a
                       key={social.label}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, y: -3 }}
-                      className="w-12 h-12 bg-background border-2 border-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent/50 transition-all shadow-md hover:shadow-lg"
+                      className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-text-muted transition-colors hover:border-border-strong hover:bg-subtle hover:text-text-primary"
                       aria-label={social.label}
                     >
-                      <social.icon size={20} />
-                    </motion.a>
+                      <social.icon size={18} />
+                    </a>
                   ))}
                 </div>
               </div>
@@ -140,71 +131,70 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.form
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="space-y-5"
+            className="space-y-4"
           >
-            <div className="grid md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4">
               <div>
-                <label className="block text-sm font-medium text-white mb-2">Name</label>
+                <label className="mb-1.5 block text-sm font-medium text-text-secondary">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formState.name}
                   onChange={handleChange}
-                  placeholder="Your Name"
+                  placeholder="Your name"
                   required
-                  className="w-full bg-background border-2 border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                  className="w-full min-w-0 rounded-md border border-border bg-background px-3 py-2.5 text-base text-text-primary shadow-sm placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white mb-2">Email</label>
+                <label className="mb-1.5 block text-sm font-medium text-text-secondary">Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formState.email}
                   onChange={handleChange}
-                  placeholder="your@email.com"
+                  placeholder="you@company.com"
                   required
-                  className="w-full bg-background border-2 border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                  className="w-full min-w-0 rounded-md border border-border bg-background px-3 py-2.5 text-base text-text-primary shadow-sm placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-white mb-2">Subject</label>
+              <label className="mb-1.5 block text-sm font-medium text-text-secondary">Subject</label>
               <input
                 type="text"
                 name="subject"
                 value={formState.subject}
                 onChange={handleChange}
-                placeholder="What's this about?"
+                placeholder="What is this about?"
                 required
-                className="w-full bg-background border-2 border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                className="w-full min-w-0 rounded-md border border-border bg-background px-3 py-2.5 text-base text-text-primary shadow-sm placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-white mb-2">Message</label>
+              <label className="mb-1.5 block text-sm font-medium text-text-secondary">Message</label>
               <textarea
                 name="message"
                 value={formState.message}
                 onChange={handleChange}
                 rows={6}
-                placeholder="Tell us about your project..."
+                placeholder="Context, stack, timeline…"
                 required
-                className="w-full bg-background border-2 border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none"
+                className="max-h-64 w-full min-w-0 resize-y rounded-md border border-border bg-background px-3 py-2.5 text-base text-text-primary shadow-sm placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25 sm:max-h-none"
               />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 mt-2"
+              className="mt-1 flex w-full items-center justify-center gap-2 rounded-md border border-border-strong bg-accent px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isSubmitting ? (
                 <>

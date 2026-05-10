@@ -2,14 +2,16 @@
 
 import { Plus, History, Code, Briefcase, Sparkles, MessageSquare, Home } from 'lucide-react'
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface SidebarProps {
   onNewChat: () => void
   onFilterChange?: (filter: string) => void
+  onNavigate?: () => void
 }
 
-export default function Sidebar({ onNewChat, onFilterChange }: SidebarProps) {
+export default function Sidebar({ onNewChat, onFilterChange, onNavigate }: SidebarProps) {
   const [activeFilter, setActiveFilter] = useState('all')
 
   const filters = [
@@ -24,55 +26,53 @@ export default function Sidebar({ onNewChat, onFilterChange }: SidebarProps) {
     onFilterChange?.(filterId)
   }
 
+  const close = () => onNavigate?.()
+
   return (
-    <aside className="w-80 bg-gradient-to-b from-surface via-[#1c2128] to-surface border-r border-gray-800 flex flex-col h-screen overflow-hidden">
-      {/* Header with Logo */}
-      <div className="p-6 border-b border-gray-800 bg-gradient-to-b from-[#1c2128] to-surface">
-        {/* Logo and Title */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-[50%] overflow-hidden border-2 border-accent/30 flex-shrink-0">
-            <img 
-              src="/Screenshot 2025-11-06 200546.png" 
-              alt="Clarrie AI" 
-              className="w-full h-full object-cover"
-            />
+    <aside className="flex h-full w-full flex-col overflow-hidden bg-gradient-to-b from-surface via-[#1c2128] to-surface">
+      <div className="border-b border-gray-800 bg-gradient-to-b from-[#1c2128] to-surface p-4 sm:p-6">
+        <div className="mb-4 flex min-w-0 items-center gap-3">
+          <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-accent/30 sm:h-12 sm:w-12">
+            <Image src="/logo.svg" alt="Villi AI" fill className="object-contain p-1" sizes="48px" />
           </div>
-          <div>
-            <h1 className="text-xl font-bold text-white">Clarrie AI</h1>
+          <div className="min-w-0">
+            <h2 className="truncate text-lg font-bold text-white sm:text-xl">Villi AI</h2>
           </div>
         </div>
-        
-        {/* Subtitle */}
+
         <div className="text-center">
-          <p className="text-sm text-gray-400 mb-2">AI Receptionist</p>
-          <p className="text-xs text-gray-500 leading-relaxed">
-            Clarity's intelligent assistant
+          <p className="mb-1 text-sm text-gray-400">AI Receptionist</p>
+          <p className="text-xs leading-relaxed text-gray-500">
+            VelocTech&apos;s intelligent assistant
           </p>
         </div>
       </div>
 
-      {/* Navigation Buttons */}
-      <div className="p-4 space-y-2">
+      <div className="space-y-2 p-3 sm:p-4">
         <Link
           href="/"
-          className="w-full py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-xl font-medium flex items-center justify-center space-x-2 transition-all"
+          onClick={close}
+          className="flex w-full items-center justify-center space-x-2 rounded-xl bg-gray-800 py-2.5 text-sm font-medium text-white transition-all hover:bg-gray-700 sm:py-3 sm:text-base"
         >
-          <Home className="w-5 h-5" />
-          <span>Back to Portfolio</span>
+          <Home className="h-5 w-5 shrink-0" />
+          <span className="truncate">Back to Portfolio</span>
         </Link>
-        
+
         <button
-          onClick={onNewChat}
-          className="w-full py-3 bg-accent hover:bg-accent/90 text-white rounded-xl font-medium flex items-center justify-center space-x-2 transition-all shadow-lg hover:shadow-xl"
+          type="button"
+          onClick={() => {
+            onNewChat()
+            close()
+          }}
+          className="flex w-full items-center justify-center space-x-2 rounded-xl bg-accent py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:bg-accent/90 hover:shadow-xl sm:py-3 sm:text-base"
         >
-          <Plus className="w-5 h-5" />
+          <Plus className="h-5 w-5 shrink-0" />
           <span>New Chat</span>
         </button>
       </div>
 
-      {/* Explore Section */}
-      <div className="px-4 py-2">
-        <div className="flex items-center justify-between mb-3">
+      <div className="px-3 py-2 sm:px-4">
+        <div className="mb-3 flex items-center justify-between">
           <h3 className="text-sm font-semibold text-white">Explore</h3>
         </div>
         <div className="space-y-2">
@@ -82,57 +82,60 @@ export default function Sidebar({ onNewChat, onFilterChange }: SidebarProps) {
             return (
               <button
                 key={filter.id}
-                onClick={() => handleFilterClick(filter.id)}
-                className={`w-full px-4 py-2.5 rounded-lg flex items-center space-x-3 transition-all ${
+                type="button"
+                onClick={() => {
+                  handleFilterClick(filter.id)
+                  close()
+                }}
+                className={`flex w-full items-center space-x-3 rounded-lg px-3 py-2 text-left transition-all sm:px-4 sm:py-2.5 ${
                   isActive
                     ? 'bg-accent text-white shadow-md'
-                    : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
-                <Icon className="w-4 h-4" />
-                <span className="text-sm font-medium">{filter.label}</span>
+                <Icon className="h-4 w-4 shrink-0" />
+                <span className="text-xs font-medium sm:text-sm">{filter.label}</span>
               </button>
             )
           })}
         </div>
       </div>
 
-      {/* Quick Actions */}
-      <div className="px-4 py-4 mt-2">
-        <h3 className="text-sm font-semibold text-white mb-3">Quick Actions</h3>
-        <div className="grid grid-cols-2 gap-3">
-          <button className="aspect-square rounded-xl bg-gradient-to-br from-accent to-blue-600 hover:from-accent/90 hover:to-blue-700 flex flex-col items-center justify-center space-y-2 transition-all shadow-lg hover:shadow-xl hover:scale-105">
-            <Code className="w-6 h-6 text-white" />
-            <span className="text-xs text-white font-semibold">Tech Stack</span>
+      <div className="mt-2 px-3 py-3 sm:px-4">
+        <h3 className="mb-2 text-sm font-semibold text-white">Quick Actions</h3>
+        <div className="grid grid-cols-2 gap-2 sm:gap-3">
+          <button
+            type="button"
+            className="flex aspect-square flex-col items-center justify-center space-y-1 rounded-xl bg-gradient-to-br from-accent to-blue-600 p-2 shadow-lg transition-all hover:scale-[1.02] hover:from-accent/90 hover:to-blue-700 hover:shadow-xl sm:space-y-2"
+          >
+            <Code className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+            <span className="text-center text-[10px] font-semibold text-white sm:text-xs">Tech Stack</span>
           </button>
-          <button className="aspect-square rounded-xl bg-gradient-to-br from-secondary to-green-600 hover:from-secondary/90 hover:to-green-700 flex flex-col items-center justify-center space-y-2 transition-all shadow-lg hover:shadow-xl hover:scale-105">
-            <Briefcase className="w-6 h-6 text-white" />
-            <span className="text-xs text-white font-semibold">Portfolio</span>
+          <button
+            type="button"
+            className="flex aspect-square flex-col items-center justify-center space-y-1 rounded-xl bg-gradient-to-br from-secondary to-green-600 p-2 shadow-lg transition-all hover:scale-[1.02] hover:from-secondary/90 hover:to-green-700 hover:shadow-xl sm:space-y-2"
+          >
+            <Briefcase className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+            <span className="text-center text-[10px] font-semibold text-white sm:text-xs">Portfolio</span>
           </button>
         </div>
       </div>
 
-      {/* History */}
-      <div className="flex-1 px-4 py-4 overflow-y-auto custom-scrollbar">
-        <div className="flex items-center space-x-2 mb-3">
-          <History className="w-4 h-4 text-gray-400" />
+      <div className="custom-scrollbar flex-1 overflow-y-auto px-3 py-3 sm:px-4">
+        <div className="mb-3 flex items-center space-x-2">
+          <History className="h-4 w-4 shrink-0 text-gray-400" />
           <h3 className="text-sm font-semibold text-white">History</h3>
         </div>
         <div className="space-y-2">
-          <div className="text-sm text-gray-400 italic">No chat history</div>
+          <div className="text-sm italic text-gray-400">No chat history</div>
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="p-4 border-t border-gray-800 bg-background">
-        <Link
-          href="/"
-          className="text-xs text-gray-400 hover:text-accent transition-colors"
-        >
-          Built by Clarity Inc.
+      <div className="border-t border-gray-800 bg-background p-3 sm:p-4">
+        <Link href="/" onClick={close} className="text-xs text-gray-400 transition-colors hover:text-accent">
+          Built by VelocTech Inc.
         </Link>
       </div>
     </aside>
   )
 }
-

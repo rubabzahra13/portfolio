@@ -12,81 +12,72 @@ const Testimonials = () => {
   const prev = () => setCurrent((current - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section id="testimonials" className="py-32 bg-surface relative overflow-hidden border-b border-gray-800/30">
-      {/* Minimal Dark - Trust & Credibility Focus */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle radial gradient for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-surface to-background/50 opacity-70"></div>
-        {/* Minimal border accents */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent"></div>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="testimonials" className="relative overflow-x-clip border-b border-border bg-surface py-20 sm:py-24">
+      <div className="relative z-10 mx-auto min-w-0 max-w-3xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-10 text-center sm:mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Client <span className="text-accent">Testimonials</span>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-text-muted">Clients</p>
+          <h2 className="mb-3 text-balance text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl md:text-4xl">
+            Testimonials
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            What our clients say about working with Clarity
+          <p className="mx-auto max-w-xl text-pretty text-base text-text-secondary sm:text-lg">
+            Direct feedback from teams we have shipped with.
           </p>
         </motion.div>
 
-        <div className="relative">
+        <div className="relative min-w-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-surface to-background border-2 border-gray-800 p-10 md:p-14 rounded-3xl relative shadow-2xl"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28 }}
+              className="relative min-w-0 rounded-lg border border-border bg-background p-6 shadow-card sm:p-10 md:p-12"
             >
-              <Quote className="absolute top-8 left-8 text-accent/20" size={56} />
-              
-              <p className="text-gray-200 text-xl md:text-2xl mb-10 italic relative z-10 leading-relaxed font-light">
-                "{testimonials[current].text}"
+              <Quote className="absolute left-5 top-5 h-9 w-9 text-border sm:left-8 sm:top-8 sm:h-11 sm:w-11" aria-hidden />
+
+              <p className="relative z-10 mb-8 pl-0 text-pretty text-base font-normal leading-relaxed text-text-primary sm:mb-10 sm:text-lg md:text-xl">
+                &ldquo;{testimonials[current].text}&rdquo;
               </p>
-              
-              <div className="flex items-center gap-5 pt-6 border-t border-gray-800">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-secondary flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-accent/30">
+
+              <div className="flex flex-col gap-4 border-t border-border pt-5 sm:flex-row sm:items-center sm:gap-5 sm:pt-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-border bg-elevated text-base font-semibold text-text-primary sm:h-14 sm:w-14 sm:text-lg">
                   {testimonials[current].name.charAt(0)}
                 </div>
-                <div>
-                  <p className="text-white font-bold text-xl">
+                <div className="min-w-0">
+                  <p className="break-words text-base font-semibold text-text-primary sm:text-lg">
                     {testimonials[current].name}
                   </p>
-                  <p className="text-accent font-medium">{testimonials[current].role}</p>
+                  <p className="break-words text-sm font-medium text-text-muted sm:text-base">{testimonials[current].role}</p>
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center mt-10">
+          <div className="mt-6 flex items-center justify-between gap-3 sm:mt-8">
             <button
+              type="button"
               onClick={prev}
-              className="p-3 rounded-xl bg-surface border-2 border-gray-800 hover:border-accent text-gray-400 hover:text-white transition-all hover:bg-background shadow-lg"
+              className="rounded-md border border-border bg-background p-2.5 text-text-muted transition-colors hover:border-border-strong hover:bg-subtle hover:text-text-primary"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={22} />
             </button>
 
-            <div className="flex gap-2">
+            <div className="mx-1 flex min-w-0 shrink items-center justify-center gap-1.5 sm:gap-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => setCurrent(index)}
-                  className={`transition-all rounded-full ${
-                    index === current
-                      ? "bg-accent w-10 h-3 shadow-lg shadow-accent/30"
-                      : "bg-gray-700 w-3 h-3 hover:bg-gray-500"
+                  className={`h-2 rounded-full transition-all ${
+                    index === current ? "w-8 bg-accent" : "w-2 bg-border hover:bg-border-strong"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -94,11 +85,12 @@ const Testimonials = () => {
             </div>
 
             <button
+              type="button"
               onClick={next}
-              className="p-3 rounded-xl bg-surface border-2 border-gray-800 hover:border-accent text-gray-400 hover:text-white transition-all hover:bg-background shadow-lg"
+              className="rounded-md border border-border bg-background p-2.5 text-text-muted transition-colors hover:border-border-strong hover:bg-subtle hover:text-text-primary"
               aria-label="Next testimonial"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={22} />
             </button>
           </div>
         </div>

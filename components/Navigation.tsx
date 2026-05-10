@@ -8,14 +8,12 @@ function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  // Detect scroll to change navbar background and active section
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      
-      // Find which section is currently in view
-      const sections = ["clarrie", "about", "skills", "projects", "testimonials", "contact"];
-      const scrollPosition = window.scrollY + 100; // Offset for navbar
+      setIsScrolled(window.scrollY > 8);
+
+      const sections = ["villi", "about", "skills", "projects", "testimonials", "contact"];
+      const scrollPosition = window.scrollY + 96;
 
       let currentSection = "";
 
@@ -24,145 +22,141 @@ function Navigation() {
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetBottom = offsetTop + element.offsetHeight;
-          
-          // Check if section is in viewport with threshold
-          if (scrollPosition >= offsetTop - 100 && scrollPosition < offsetBottom - 100) {
+
+          if (scrollPosition >= offsetTop - 96 && scrollPosition < offsetBottom - 96) {
             currentSection = sectionId;
             break;
           }
         }
       }
 
-      // Only update if we found a valid section
       if (currentSection) {
         setActiveSection(currentSection);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Initial check after a small delay to ensure DOM is ready
     setTimeout(handleScroll, 100);
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
-    
-    // Special handling for Clarrie - navigate to chat page
-    if (id === 'clarrie') {
-      window.location.href = '/chat';
+
+    if (id === "villi") {
+      window.location.href = "/chat";
       return;
     }
-    
+
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
-        const offset = 80;
+        const offset = 72;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
-        
-        // Update active section immediately
+
         setActiveSection(id);
       }
-    }, 100);
+    }, 80);
   };
 
   const navItems = [
-    { name: "Clarrie AI", id: "clarrie" },
+    { name: "Villi AI", id: "villi" },
     { name: "About", id: "about" },
     { name: "Skills", id: "skills" },
     { name: "Projects", id: "projects" },
     { name: "Testimonials", id: "testimonials" },
-    { name: "Contact", id: "contact" }
+    { name: "Contact", id: "contact" },
   ];
 
-  const getNavItemClass = (itemId: string) => {
-    const baseClass = "transition-colors font-medium";
-    const activeClass = "text-accent";
-    const inactiveClass = "text-gray-300 hover:text-accent";
-    
-    return `${baseClass} ${activeSection === itemId ? activeClass : inactiveClass}`;
+  const linkClass = (itemId: string) => {
+    const active = activeSection === itemId;
+    return [
+      "rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors",
+      active
+        ? "bg-subtle text-text-primary"
+        : "text-text-muted hover:bg-subtle hover:text-text-primary",
+    ].join(" ");
   };
 
   return (
-    <nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled || isOpen 
-          ? "bg-background/95 backdrop-blur-md border-b border-gray-800" 
-          : "bg-transparent"
+    <nav
+      className={`fixed top-0 z-50 w-full border-b transition-colors duration-200 ${
+        isScrolled || isOpen
+          ? "border-border bg-background/90 backdrop-blur-md"
+          : "border-transparent bg-background/60 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo - Clean Wordmark */}
-          <div className="text-xl font-bold text-white">
-            Clarity Inc<span className="text-[#6699FF]">.</span>
-          </div>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={getNavItemClass(item.id)}
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2 rounded-lg hover:bg-surface transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} 
-              />
-            </svg>
-          </button>
+      <div className="mx-auto flex h-14 min-w-0 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 sm:h-14">
+        <div className="min-w-0 shrink truncate text-sm font-semibold tracking-tight text-text-primary sm:text-base">
+          VelocTech Inc<span className="text-accent">.</span>
         </div>
 
-        {/* Mobile Menu with Background */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden bg-background/95 backdrop-blur-md border-t border-gray-800 overflow-hidden"
+        <div className="hidden flex-wrap items-center justify-end gap-0.5 md:flex">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => scrollToSection(item.id)}
+              className={linkClass(item.id)}
             >
-              <div className="py-4 space-y-2">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left py-3 px-4 rounded-lg transition-all font-medium ${
-                      activeSection === item.id 
-                        ? "text-accent bg-surface/50" 
-                        : "text-gray-300 hover:text-accent hover:bg-surface/50"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {item.name}
+            </button>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className="rounded-md p-2 text-text-primary transition-colors hover:bg-subtle md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+            />
+          </svg>
+        </button>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22 }}
+            className="overflow-hidden border-t border-border bg-background md:hidden"
+          >
+            <div className="flex flex-col gap-0.5 px-2 py-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  className={`w-full rounded-md px-3 py-2.5 text-left text-sm font-medium transition-colors ${
+                    activeSection === item.id
+                      ? "bg-subtle text-text-primary"
+                      : "text-text-secondary hover:bg-subtle"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

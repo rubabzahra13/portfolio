@@ -48,34 +48,21 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-32 bg-elevated relative overflow-hidden border-b border-gray-800/30">
-      {/* Minimal Elevated - Subtle Depth Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Diagonal gradient overlay for subtle depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-surface/40 via-elevated to-surface/40 opacity-80"></div>
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: 'linear-gradient(rgba(88, 166, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 166, 255, 0.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}></div>
-        {/* Top and bottom accent lines */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="skills" className="relative overflow-x-clip border-b border-border bg-elevated py-20 sm:py-24">
+      <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Skills & <span className="text-accent">Technologies</span>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-text-muted">Capabilities</p>
+          <h2 className="mb-4 text-balance text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl md:text-4xl">
+            Skills & technologies
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Modern tech stack powering enterprise-grade applications
+          <p className="mx-auto max-w-2xl text-pretty text-base text-text-secondary sm:text-lg">
+            Stacks we use daily to design, build, and operate production systems.
           </p>
         </motion.div>
 
@@ -88,30 +75,28 @@ const Skills = () => {
             viewport={{ once: true }}
             className="mb-16 last:mb-0"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <h3 className="text-2xl font-bold text-white">{category.title}</h3>
-              <div className="h-px flex-1 bg-gradient-to-r from-accent/50 to-transparent"></div>
+            <div className="mb-6 flex min-w-0 items-center gap-3 sm:mb-8">
+              <h3 className="shrink-0 text-lg font-semibold text-text-primary sm:text-xl">{category.title}</h3>
+              <div className="h-px flex-1 bg-border" />
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-3 lg:grid-cols-5">
               {category.skills.map((skill, skillIndex) => {
                 const IconComponent = skill.icon;
                 return (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: skillIndex * 0.05 }}
+                    initial={{ opacity: 0, y: 6 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: skillIndex * 0.04, duration: 0.35 }}
                     viewport={{ once: true }}
-                    whileHover={{ y: -5, scale: 1.05 }}
-                    className="bg-background border-2 border-gray-800 hover:border-accent/50 p-6 rounded-xl text-center group transition-all shadow-md hover:shadow-xl hover:shadow-accent/5"
+                    className="group min-w-0 rounded-lg border border-border bg-background p-3 text-center shadow-card transition-colors hover:border-border-strong sm:p-5"
                   >
                     <IconComponent
-                      className="mx-auto mb-3 group-hover:scale-110 transition-transform"
-                      size={40}
+                      className="mx-auto mb-2 h-8 w-8 transition-opacity group-hover:opacity-90 sm:mb-2.5 sm:h-9 sm:w-9"
                       style={{ color: skill.color }}
                     />
-                    <p className="text-gray-300 font-semibold text-sm group-hover:text-white transition-colors">
+                    <p className="break-words text-xs font-medium text-text-secondary hyphens-auto sm:text-sm">
                       {skill.name}
                     </p>
                   </motion.div>

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // GitHub-inspired color scheme (matching ClarrieAI)
+        // GitHub-inspired color scheme (matching Villi AI / portfolio theme)
         background: "#0d1117",
         surface: "#161b22",
         elevated: "#1c2128",
@@ -30,6 +30,10 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        focus: "0 0 0 3px rgba(56, 139, 253, 0.35)",
+        card: "0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 24px rgba(1, 4, 9, 0.45)",
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out',

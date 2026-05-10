@@ -17,9 +17,9 @@
     <path d="M 8 -6 L 0 -2" stroke="#79c0ff" stroke-width="0.5" opacity="0.4"/>
   </g>
   
-  <!-- Wordmark "Clarity Inc." -->
-  <text x="50" y="27" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="white">
-    Clarity Inc<tspan fill="#6699FF">.</tspan>
+  <!-- Wordmark "VelocTech Inc." -->
+  <text x="46" y="27" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="white">
+    VelocTech Inc<tspan fill="#6699FF">.</tspan>
   </text>
 </svg>
 

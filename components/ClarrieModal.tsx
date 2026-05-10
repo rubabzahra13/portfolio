@@ -61,12 +61,12 @@ const ClarrieModal = ({ isOpen, onClose }: ClarrieModalProps) => {
             <button
               onClick={onClose}
               className="absolute top-4 right-4 z-50 p-2 bg-surface hover:bg-gray-700 rounded-lg transition-colors group"
-              aria-label="Close Clarrie AI"
+              aria-label="Close Villi AI"
             >
               <X className="w-6 h-6 text-gray-400 group-hover:text-white" />
             </button>
 
-            {/* ClarrieAI Interface - Integrated */}
+            {/* Villi AI chat interface */}
             <ChatInterface />
           </motion.div>
         </motion.div>

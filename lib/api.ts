@@ -1,5 +1,5 @@
 /**
- * API client for communicating with Clarrie AI backend
+ * API client for communicating with the Villi AI backend
  */
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'

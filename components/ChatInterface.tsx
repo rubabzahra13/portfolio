@@ -1,13 +1,17 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Send, Loader2, Sparkles } from 'lucide-react'
+import { Send, Loader2, Sparkles, Menu } from 'lucide-react'
 import ChatMessage from './ChatMessage'
 import SuggestedActions from './SuggestedActions'
 import LeadCaptureForm from './LeadCaptureForm'
 import { sendMessage, ChatMessage as ChatMessageType } from '@/lib/api'
 
-export default function ChatInterface() {
+type ChatInterfaceProps = {
+  onOpenSidebar?: () => void
+}
+
+export default function ChatInterface({ onOpenSidebar }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<ChatMessageType[]>([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -20,7 +24,7 @@ export default function ChatInterface() {
     "Tell me about your AI projects and capabilities",
     "Show me examples of full-stack applications you've built",
     "What technologies and stacks do you specialize in?",
-    "How can Clarity help with my project idea?",
+    "How can VelocTech help with my project idea?",
   ]
 
   // Scroll to bottom when messages change
@@ -90,14 +94,25 @@ export default function ChatInterface() {
   return (
     <div className="flex flex-col h-full bg-background">
       {/* Header Bar */}
-      <header className="border-b border-gray-800 bg-surface px-6 py-4 flex items-center justify-between">
-        <div>
-          <h2 className="text-lg font-semibold text-white">Chat with Clarrie AI</h2>
-          <p className="text-sm text-gray-400">Your AI guide to Clarity's portfolio</p>
+      <header className="flex shrink-0 items-center justify-between gap-2 border-b border-gray-800 bg-surface px-3 py-3 sm:px-6 sm:py-4">
+        <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            onClick={onOpenSidebar}
+            className="shrink-0 rounded-lg p-2 text-white hover:bg-gray-800 lg:hidden"
+            aria-label="Open sidebar menu"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+          <div className="min-w-0">
+            <h2 className="truncate text-base font-semibold text-white sm:text-lg">Chat with Villi AI</h2>
+            <p className="truncate text-xs text-gray-400 sm:text-sm">Your AI guide to VelocTech&apos;s portfolio</p>
+          </div>
         </div>
         <button
+          type="button"
           onClick={() => setShowLeadForm(true)}
-          className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-lg transition-colors font-medium shadow-lg"
+          className="shrink-0 rounded-lg bg-accent px-3 py-2 text-xs font-medium text-white shadow-lg transition-colors hover:bg-accent/90 sm:px-4 sm:text-sm"
         >
           Book a Call
         </button>
@@ -106,35 +121,36 @@ export default function ChatInterface() {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Greeting Screen */}
         {isEmptyChat ? (
-          <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
-            <div className="text-center max-w-3xl">
-              <h1 className="text-5xl font-bold mb-2">
-                <span className="text-white">Hey, it's </span>
-                <span className="text-accent">Clarrie AI</span>
-                <span className="ml-2">👋</span>
+          <div className="flex flex-1 flex-col items-center justify-center overflow-y-auto px-3 py-8 sm:px-6 sm:py-12">
+            <div className="max-w-3xl text-center">
+              <h1 className="mb-2 text-2xl font-bold leading-tight sm:text-4xl md:text-5xl">
+                <span className="text-white">Hey, it&apos;s </span>
+                <span className="text-accent">Villi AI</span>
+                <span className="ml-1 sm:ml-2" aria-hidden>
+                  👋
+                </span>
               </h1>
-              <h2 className="text-4xl font-bold text-white mb-12">How can I help?</h2>
+              <h2 className="mb-8 text-xl font-bold text-white sm:mb-12 sm:text-3xl md:text-4xl">How can I help?</h2>
 
-              {/* Suggested Prompts Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="mb-6 grid grid-cols-1 gap-3 sm:mb-8 sm:gap-4 md:grid-cols-2">
                 {suggestedPrompts.map((prompt, index) => (
                   <button
                     key={index}
+                    type="button"
                     onClick={() => {
                       setInput(prompt)
                       inputRef.current?.focus()
                     }}
-                    className="p-6 bg-surface hover:bg-accent border-2 border-gray-700 hover:border-accent rounded-xl text-left transition-all group shadow-md hover:shadow-xl"
+                    className="rounded-xl border-2 border-gray-700 bg-surface p-4 text-left shadow-md transition-all group hover:border-accent hover:bg-accent hover:shadow-xl sm:p-6"
                   >
-                    <p className="text-gray-300 group-hover:text-white transition-colors font-medium">
+                    <p className="text-sm font-medium text-gray-300 transition-colors group-hover:text-white sm:text-base">
                       {prompt}
                     </p>
                   </button>
                 ))}
               </div>
 
-              {/* Quick tip */}
-              <div className="flex items-center justify-center space-x-2 text-gray-400 text-sm">
+              <div className="flex items-center justify-center space-x-2 text-xs text-gray-400 sm:text-sm">
                 <Sparkles className="w-4 h-4" />
                 <p>Or type your own question below</p>
               </div>
@@ -142,14 +158,14 @@ export default function ChatInterface() {
           </div>
         ) : (
           /* Chat Messages Area */
-          <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+          <div className="flex-1 space-y-4 overflow-y-auto px-3 py-4 sm:space-y-6 sm:px-6 sm:py-6">
             {messages.map((message, index) => (
               <ChatMessage key={index} message={message} />
             ))}
             
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-surface border border-gray-700 rounded-2xl px-4 py-3 max-w-[80%] shadow-lg">
+                <div className="max-w-[min(80%,24rem)] rounded-2xl border border-gray-700 bg-surface px-3 py-3 shadow-lg sm:max-w-[80%] sm:px-4">
                   <Loader2 className="w-5 h-5 text-accent animate-spin drop-shadow-lg" />
                 </div>
               </div>
@@ -170,26 +186,28 @@ export default function ChatInterface() {
         )}
 
         {/* Input area */}
-        <div className="border-t border-gray-800 bg-background p-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-surface border border-gray-700 rounded-xl shadow-2xl p-4">
-              <div className="flex items-center space-x-3">
+        <div className="shrink-0 border-t border-gray-800 bg-background p-3 sm:p-6">
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-xl border border-gray-700 bg-surface p-3 shadow-2xl sm:p-4">
+              <div className="flex min-w-0 items-center gap-2 sm:gap-3">
                 <input
                   ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask me anything about Clarity's work..."
+                  placeholder="Ask about VelocTech&apos;s work..."
                   disabled={isLoading}
-                  className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none disabled:opacity-50 focus:outline-none font-normal text-base"
+                  className="min-w-0 flex-1 bg-transparent text-sm font-normal text-white outline-none placeholder:text-gray-500 focus:outline-none disabled:opacity-50 sm:text-base"
                 />
                 <button
+                  type="button"
                   onClick={handleSend}
                   disabled={!input.trim() || isLoading}
-                  className="p-3 bg-accent hover:bg-accent/90 disabled:bg-gray-700 disabled:cursor-not-allowed rounded-lg transition-colors shadow-lg"
+                  className="shrink-0 rounded-lg bg-accent p-2.5 shadow-lg transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:bg-gray-700 sm:p-3"
+                  aria-label="Send message"
                 >
-                  <Send className="w-5 h-5 text-white" />
+                  <Send className="h-5 w-5 text-white" />
                 </button>
               </div>
             </div>

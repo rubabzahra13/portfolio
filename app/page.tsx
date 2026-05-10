@@ -12,7 +12,7 @@ import ClarrieShowcase from '../components/ClarrieShowcase'
 
 export default function Home() {
   return (
-    <>
+    <main id="main-content">
       <Navigation />
       <Hero />
       <About />
@@ -22,6 +22,6 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
-    </>
-  )
+    </main>
+  );
 }

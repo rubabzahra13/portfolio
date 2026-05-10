@@ -12,8 +12,8 @@ export default function ChatMessage({ message }: ChatMessageProps) {
 
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} animate-fade-in px-2`}>
-      <div className={`flex ${isUser ? 'flex-row-reverse' : 'flex-row'} items-start gap-3 ${
-        isUser ? 'max-w-[70%]' : 'max-w-[85%]'
+      <div className={`flex ${isUser ? 'flex-row-reverse' : 'flex-row'} items-start gap-2 sm:gap-3 ${
+        isUser ? 'max-w-[min(92%,18rem)] sm:max-w-[70%]' : 'max-w-[min(95%,28rem)] sm:max-w-[85%]'
       }`}>
         {/* Avatar */}
         <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
@@ -35,7 +35,7 @@ export default function ChatMessage({ message }: ChatMessageProps) {
               ? 'bg-accent text-white font-medium' 
               : 'bg-surface border-2 border-gray-700 text-gray-200'
           }`}>
-            <p className="whitespace-pre-wrap">{message.content}</p>
+            <p className="whitespace-pre-wrap break-words text-sm sm:text-base">{message.content}</p>
           </div>
           
           {/* Timestamp */}

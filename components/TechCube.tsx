@@ -40,15 +40,15 @@ const SimpleTechCube = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center h-full perspective-1000">
+    <div className="flex h-full w-full items-center justify-center perspective-1000">
       <div 
         ref={cubeRef}
-        className="relative w-48 h-48 transform-style-3d transition-transform duration-100"
+        className="relative h-48 w-48 transform-style-3d transition-transform duration-100"
       >
         {faces.map((face, index) => (
           <div
             key={index}
-            className="absolute w-full h-full flex items-center justify-center text-white text-lg font-bold rounded-lg backdrop-blur-sm"
+            className="absolute flex h-full w-full items-center justify-center rounded-lg text-xs font-bold text-white backdrop-blur-sm sm:text-base md:text-lg"
             style={{ 
               transform: face.transform,
               backgroundColor: `${face.bgColor}CC`,  // 80% opacity

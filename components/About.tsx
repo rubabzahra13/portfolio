@@ -29,72 +29,64 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-32 bg-surface relative overflow-hidden border-b border-gray-800/30">
-      {/* Minimal Dark - Clean Professional Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-surface to-background opacity-60"></div>
-        {/* Minimal accent hint at borders */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="about" className="relative overflow-x-clip border-b border-border bg-surface py-20 sm:py-24">
+      <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            About <span className="text-accent">Clarity</span>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-text-muted">Studio</p>
+          <h2 className="mb-4 text-balance text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl md:text-4xl">
+            About VelocTech
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            We are a modern software engineering studio specializing in <span className="text-white font-semibold">full-stack development</span> and <span className="text-white font-semibold">agentic AI systems</span>
+          <p className="mx-auto max-w-2xl text-pretty text-base leading-relaxed text-text-secondary sm:text-lg">
+            We are a software engineering studio focused on{" "}
+            <span className="font-medium text-text-primary">full-stack delivery</span> and{" "}
+            <span className="font-medium text-text-primary">applied AI systems</span>—with the
+            rigor you expect from a product team.
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="mb-12 grid grid-cols-1 gap-4 sm:mb-16 md:grid-cols-3 md:gap-5">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.06, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-surface border-2 border-gray-800 hover:border-accent/50 rounded-2xl p-8 text-center group transition-all hover:shadow-xl hover:shadow-accent/5"
+                className="rounded-lg border border-border bg-background p-6 text-center shadow-card transition-colors hover:border-border-strong sm:p-8"
               >
-                <Icon className="w-8 h-8 text-accent mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-gray-400 font-medium">{stat.label}</div>
+                <Icon className="mx-auto mb-3 h-7 w-7 text-accent" aria-hidden />
+                <div className="mb-1 text-2xl font-semibold tabular-nums text-text-primary sm:text-3xl">{stat.value}</div>
+                <div className="text-sm font-medium text-text-muted">{stat.label}</div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Value Props */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-5 md:grid-cols-3 md:gap-6">
           {values.map((value, index) => {
             const Icon = value.icon;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15 }}
+                transition={{ delay: index * 0.08, duration: 0.4 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-surface to-background border border-gray-800 hover:border-accent/50 rounded-2xl p-8 transition-all shadow-lg hover:shadow-xl hover:shadow-accent/10"
+                className="rounded-lg border border-border bg-background p-6 shadow-card transition-colors hover:border-border-strong sm:p-7"
               >
-                <div className="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-accent" />
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md border border-border bg-elevated">
+                  <Icon className="h-5 w-5 text-accent" aria-hidden />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                <h3 className="mb-2 text-base font-semibold text-text-primary sm:text-lg">{value.title}</h3>
+                <p className="text-sm leading-relaxed text-text-secondary sm:text-base">{value.description}</p>
               </motion.div>
             );
           })}

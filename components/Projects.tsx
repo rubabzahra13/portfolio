@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ExternalLink, Github, Sparkles } from 'lucide-react';
 
 const Projects = () => {
@@ -29,97 +30,84 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 bg-background relative overflow-hidden border-b-2 border-gray-800/50">
-      {/* Background Effect - Matching Hero Section Vibrancy */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-accent/30 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-tertiary/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '3s' }}></div>
-        {/* Additional layers for intensity */}
-        <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-tertiary/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '5s' }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s', animationDuration: '3.5s' }}></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="projects" className="relative overflow-x-clip border-b border-border bg-background py-20 sm:py-24">
+      <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Featured <span className="text-accent">Projects</span>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-text-muted">Work</p>
+          <h2 className="mb-4 text-balance text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl md:text-4xl">
+            Selected projects
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Showcasing our best work in full-stack development and AI systems
+          <p className="mx-auto max-w-2xl text-pretty text-base text-text-secondary sm:text-lg">
+            Representative builds across commerce, AI-native workflows, and data-heavy interfaces.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.06 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="group relative bg-background border-2 border-gray-800 hover:border-accent/50 rounded-2xl overflow-hidden transition-all shadow-lg hover:shadow-2xl hover:shadow-accent/10"
+              className="group relative min-w-0 overflow-hidden rounded-lg border border-border bg-surface shadow-card transition-colors hover:border-border-strong"
             >
-              {/* Featured Badge */}
               {project.featured && (
-                <div className="absolute top-4 right-4 z-10 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                  <Sparkles className="w-3 h-3" />
+                <div className="absolute right-3 top-3 z-10 flex items-center gap-1 rounded-full border border-border-strong bg-accent px-2 py-0.5 text-xs font-semibold text-white">
+                  <Sparkles className="h-3 w-3 shrink-0" aria-hidden />
                   Featured
                 </div>
               )}
 
-              {/* Image with Overlay */}
-              <div className="relative h-52 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-background">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60"></div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-80" />
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+              <div className="border-t border-border p-4 sm:p-5">
+                <h3 className="mb-2 text-balance text-lg font-semibold text-text-primary sm:text-xl">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-5 leading-relaxed line-clamp-3">
+                <p className="mb-4 line-clamp-3 text-pretty text-sm leading-relaxed text-text-secondary sm:mb-5 sm:text-base">
                   {project.description}
                 </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-5">
+                <div className="mb-4 flex flex-wrap gap-1.5 sm:mb-5">
                   {project.tech.map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="bg-accent/10 border border-accent/30 text-accent px-3 py-1 rounded-lg text-sm font-medium hover:bg-accent/20 transition-colors"
+                    <span
+                      key={tech}
+                      className="rounded border border-border bg-background px-2 py-0.5 text-xs font-medium text-text-secondary"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Action Links */}
-                <div className="flex gap-4 pt-4 border-t border-gray-800">
-                  <a 
-                    href="#" 
-                    className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-medium group/link"
+                <div className="flex flex-wrap gap-4 border-t border-border pt-3 sm:gap-5 sm:pt-4">
+                  <a
+                    href="#"
+                    className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
                   >
-                    <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                    Live Demo
+                    <ExternalLink className="h-4 w-4 shrink-0" aria-hidden />
+                    Live demo
                   </a>
-                  <a 
-                    href="#" 
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors font-medium group/link"
+                  <a
+                    href="#"
+                    className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text-primary"
                   >
-                    <Github className="w-4 h-4 group-hover/link:scale-110 transition-transform" />
+                    <Github className="h-4 w-4 shrink-0" aria-hidden />
                     Code
                   </a>
                 </div>

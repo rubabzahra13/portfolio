@@ -49,7 +49,7 @@ export default function LeadCaptureForm({ onClose, prefilledInterest = '' }: Lea
   if (isSuccess) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in">
-        <div className="bg-surface rounded-2xl p-8 max-w-md w-full mx-4 border border-secondary shadow-2xl animate-slide-up">
+        <div className="mx-4 max-h-[88dvh] w-full max-w-md overflow-y-auto rounded-2xl border border-secondary bg-surface p-6 shadow-2xl animate-slide-up sm:p-8">
           <div className="text-center">
             <CheckCircle2 className="w-16 h-16 text-secondary mx-auto mb-4 drop-shadow-lg" />
             <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
@@ -64,7 +64,7 @@ export default function LeadCaptureForm({ onClose, prefilledInterest = '' }: Lea
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div className="bg-surface rounded-2xl p-8 max-w-md w-full mx-4 border border-gray-700 shadow-2xl animate-slide-up">
+      <div className="mx-4 max-h-[88dvh] w-full max-w-md overflow-y-auto rounded-2xl border border-gray-700 bg-surface p-6 shadow-2xl animate-slide-up sm:p-8">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-2xl font-bold text-white">Let's Connect</h3>
           <button
