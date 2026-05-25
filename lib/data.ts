@@ -23,6 +23,14 @@ export const projects = [
       liveUrl: "#",
       githubUrl: "#",
     },
+    {
+      title: "Nonprofit Advocacy Platform",
+      description: "NGO website for the Pak Palestine Forum (PPF)—community news, advocacy, and resources connecting supporters across Pakistan and Palestine.",
+      tech: ["Next.js", "Responsive", "CMS"],
+      image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+      liveUrl: "https://pakpalforum.com/",
+      githubUrl: "#",
+    },
   ];
   
   export const testimonials = [

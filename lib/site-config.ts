@@ -12,7 +12,8 @@ export function getSiteUrl(): string {
     const host = vercel.replace(/^https?:\/\//, "");
     return `https://${host}`;
   }
-  return "http://localhost:3000";
+  /* Default dev origin; align with `npm run dev` port in package.json */
+  return "http://localhost:3050";
 }
 
 export const siteConfig = {

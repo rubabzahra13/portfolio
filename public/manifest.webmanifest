@@ -1,0 +1,22 @@
+{
+  "name": "VelocTech Inc.",
+  "short_name": "VelocTech",
+  "description": "VelocTech Inc. is an AI-powered software engineering studio. We ship production-ready web apps with Next.js, React, and modern cloud architecture—portfolio, projects, and contact.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
+    }
+  ]
+}

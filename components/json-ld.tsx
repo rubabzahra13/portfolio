@@ -1,7 +1,8 @@
-import { getSiteUrl, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
+import { resolveSiteUrl } from "@/lib/resolve-site-url";
 
 export function JsonLd() {
-  const url = getSiteUrl();
+  const url = resolveSiteUrl();
 
   const organization = {
     "@context": "https://schema.org",

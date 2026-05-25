@@ -11,6 +11,7 @@ const Projects = () => {
       description: 'Enterprise-grade e-commerce solution with real-time inventory management, secure payment processing, and advanced analytics dashboard.',
       tech: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
       image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
+      liveUrl: '#',
       featured: true
     },
     {
@@ -18,6 +19,7 @@ const Projects = () => {
       description: 'Intelligent task management platform with AI-powered priority suggestions, productivity analytics, and team collaboration features.',
       tech: ['React', 'Python', 'TensorFlow', 'PostgreSQL'],
       image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop',
+      liveUrl: '#',
       featured: false
     },
     {
@@ -25,6 +27,15 @@ const Projects = () => {
       description: 'Comprehensive analytics platform for managing multiple social media accounts with automated reporting and insights.',
       tech: ['TypeScript', 'Express', 'Redis', 'Chart.js'],
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      liveUrl: '#',
+      featured: false
+    },
+    {
+      title: 'Nonprofit Advocacy Platform',
+      description: 'NGO website for the Pak Palestine Forum (PPF)—community news, advocacy, and resources connecting supporters across Pakistan and Palestine.',
+      tech: ['Next.js', 'Responsive', 'CMS'],
+      image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop',
+      liveUrl: 'https://pakpalforum.com/',
       featured: false
     }
   ];
@@ -44,7 +55,7 @@ const Projects = () => {
             Selected projects
           </h2>
           <p className="mx-auto max-w-2xl text-pretty text-base text-text-secondary sm:text-lg">
-            Representative builds across commerce, AI-native workflows, and data-heavy interfaces.
+            Representative builds across commerce, AI-native workflows, nonprofit platforms, and data-heavy interfaces.
           </p>
         </motion.div>
 
@@ -97,11 +108,13 @@ const Projects = () => {
 
                 <div className="flex flex-wrap gap-4 border-t border-border pt-3 sm:gap-5 sm:pt-4">
                   <a
-                    href="#"
+                    href={project.liveUrl}
+                    target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
+                    rel={project.liveUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
                   >
                     <ExternalLink className="h-4 w-4 shrink-0" aria-hidden />
-                    Live demo
+                    Live site
                   </a>
                   <a
                     href="#"

@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
-import { getSiteUrl, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
+import { resolveSiteUrl } from "@/lib/resolve-site-url";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,76 +11,79 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const siteUrl = getSiteUrl();
-
 export const viewport: Viewport = {
   themeColor: "#0d1117",
   colorScheme: "dark",
 };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: siteConfig.defaultTitle,
-    template: siteConfig.titleTemplate,
-  },
-  description: siteConfig.defaultDescription,
-  keywords: [...siteConfig.keywords],
-  applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.name, url: siteUrl }],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  alternates: {
-    canonical: "/",
-  },
-  icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/logo.svg", type: "image/svg+xml" }],
-  },
-  openGraph: {
-    type: "website",
-    locale: siteConfig.locale,
-    url: "/",
-    siteName: siteConfig.name,
-    title: siteConfig.defaultTitle,
+export async function generateMetadata(): Promise<Metadata> {
+  const siteUrl = resolveSiteUrl();
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: siteConfig.defaultTitle,
+      template: siteConfig.titleTemplate,
+    },
     description: siteConfig.defaultDescription,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.defaultTitle,
-    description: siteConfig.defaultDescription,
-    ...(siteConfig.twitterHandle
-      ? {
-          creator: `@${siteConfig.twitterHandle}`,
-          site: `@${siteConfig.twitterHandle}`,
-        }
-      : {}),
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    keywords: [...siteConfig.keywords],
+    applicationName: siteConfig.name,
+    authors: [{ name: siteConfig.name, url: siteUrl }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    manifest: "/manifest.webmanifest",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    alternates: {
+      canonical: "/",
+    },
+    icons: {
+      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+      apple: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    },
+    openGraph: {
+      type: "website",
+      locale: siteConfig.locale,
+      url: "/",
+      siteName: siteConfig.name,
+      title: siteConfig.defaultTitle,
+      description: siteConfig.defaultDescription,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteConfig.defaultTitle,
+      description: siteConfig.defaultDescription,
+      ...(siteConfig.twitterHandle
+        ? {
+            creator: `@${siteConfig.twitterHandle}`,
+            site: `@${siteConfig.twitterHandle}`,
+          }
+        : {}),
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  ...(siteConfig.googleSiteVerification
-    ? {
-        verification: {
-          google: siteConfig.googleSiteVerification,
-        },
-      }
-    : {}),
-  category: "technology",
-};
+    ...(siteConfig.googleSiteVerification
+      ? {
+          verification: {
+            google: siteConfig.googleSiteVerification,
+          },
+        }
+      : {}),
+    category: "technology",
+  };
+}
 
 export default function RootLayout({
   children,
