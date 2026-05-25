@@ -49,7 +49,7 @@ const About = () => {
       icon: Zap,
       title: "Fast delivery",
       description:
-        "Tight feedback loops and pragmatic scope so you ship value early—without painting yourself into a corner.",
+        "Tight feedback loops and pragmatic scope so you ship value early, without painting yourself into a corner.",
     },
     {
       icon: Sparkles,
@@ -62,7 +62,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative overflow-x-clip border-b border-white/[0.06] py-24 sm:py-28 md:py-32"
+      className="relative scroll-mt-14 overflow-x-clip border-b border-white/[0.06] pt-28 pb-24 sm:scroll-mt-16 sm:pt-32 sm:pb-28 md:pt-36 md:pb-32"
     >
       {/* Continuation of hero artwork — cool, desaturated, “snow field” read */}
       <div className="pointer-events-none absolute inset-0 z-0">
@@ -149,9 +149,9 @@ const About = () => {
               </span>
             </h2>
             <p className="max-w-xl text-pretty text-base leading-relaxed text-stone-300/95 sm:text-lg">
-              We are a software engineering studio focused on{" "}
+              VelocTech Inc. is a software engineering studio in Islamabad, Pakistan, focused on{" "}
               <span className="font-medium text-stone-100">full-stack delivery</span> and{" "}
-              <span className="font-medium text-stone-100">applied AI systems</span>—with the
+              <span className="font-medium text-stone-100">applied AI systems</span>, with the
               rigor you expect from a product team.
             </p>
           </motion.div>
@@ -168,13 +168,13 @@ const About = () => {
               return (
                 <div
                   key={stat.label}
-                  className="group flex items-center justify-between gap-4 border-b border-white/[0.08] py-5 first:pt-0 sm:py-6"
+                  className="group flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-white/[0.08] py-5 first:pt-0 sm:flex-nowrap sm:py-6"
                 >
-                  <div className="flex min-w-0 items-center gap-3">
+                  <div className="flex min-w-0 flex-1 items-center gap-3">
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-stone-200/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-colors group-hover:border-cyan-200/25 group-hover:text-cyan-100/90">
                       <Icon className="h-4 w-4" strokeWidth={1.5} aria-hidden />
                     </span>
-                    <span className="truncate text-sm font-medium tracking-wide text-stone-400">
+                    <span className="line-clamp-2 text-sm font-medium tracking-wide text-stone-400 sm:line-clamp-1">
                       {stat.label}
                     </span>
                   </div>

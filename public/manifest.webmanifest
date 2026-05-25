@@ -1,22 +1,22 @@
 {
   "name": "VelocTech Inc.",
   "short_name": "VelocTech",
-  "description": "VelocTech Inc. is an AI-powered software engineering studio. We ship production-ready web apps with Next.js, React, and modern cloud architecture—portfolio, projects, and contact.",
+  "description": "VelocTech Inc. is a software engineering studio in Islamabad, Pakistan. Production web apps, eCommerce, and AI products with Next.js and React.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d1117",
   "theme_color": "#0d1117",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "type": "image/svg+xml",
-      "sizes": "any"
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
     },
     {
-      "src": "/logo.svg",
-      "type": "image/svg+xml",
-      "sizes": "any",
-      "purpose": "maskable"
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ]
 }

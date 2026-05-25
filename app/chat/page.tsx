@@ -29,11 +29,15 @@ export default function ChatPage() {
   }
 
   if (!mounted) {
-    return null
+    return (
+      <main className="flex min-h-[100dvh] min-w-0 items-center justify-center overflow-hidden bg-background">
+        <div className="h-8 w-8 animate-pulse rounded-full bg-accent/30" aria-hidden />
+      </main>
+    )
   }
 
   return (
-    <main className="relative flex min-h-[100dvh] w-full max-w-[100vw] overflow-hidden bg-background">
+    <main className="relative flex min-h-[100dvh] w-full min-w-0 max-w-[100vw] overflow-hidden bg-background">
       <Background />
       <div className="relative z-10 flex h-[100dvh] max-h-[100dvh] w-full min-w-0">
         {sidebarOpen && (

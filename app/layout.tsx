@@ -39,10 +39,15 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: "/",
+      languages: {
+        "en-US": "/",
+      },
     },
     icons: {
-      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-      apple: [{ url: "/logo.svg", type: "image/svg+xml" }],
+      icon: [
+        { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "512x512" }],
     },
     openGraph: {
       type: "website",
@@ -51,6 +56,14 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       title: siteConfig.defaultTitle,
       description: siteConfig.defaultDescription,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: `${siteConfig.name} software engineering studio`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",

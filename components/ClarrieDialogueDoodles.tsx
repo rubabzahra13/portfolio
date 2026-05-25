@@ -115,7 +115,7 @@ function DoodleBubble({ variant, children, tail, className = '', delay = 0 }: Bu
           {user ? 'You' : 'Villi'}
         </span>
         <p
-          className={`text-left text-[14px] leading-snug sm:text-[15px] ${
+          className={`break-words text-pretty text-left text-[14px] leading-snug sm:text-[15px] ${
             user ? 'text-gray-200' : 'text-gray-100'
           }`}
         >
@@ -174,25 +174,23 @@ function DoodleSpark({ className }: { className: string }) {
 
 export default function ClarrieDialogueDoodles({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative mx-auto flex w-full flex-col items-center gap-3 sm:flex-row sm:items-stretch sm:gap-6 sm:px-1 md:gap-8 lg:gap-10 lg:px-2 xl:gap-14">
+    <div className="relative mx-auto flex w-full max-w-full flex-col items-center gap-3 overflow-x-clip sm:flex-row sm:items-stretch sm:gap-6 sm:px-1 md:gap-8 lg:gap-10 lg:px-2 xl:gap-14">
       {/* Villi — left column: bubble aligned with mascot head (same vertical band, column unchanged) */}
       <div className="pointer-events-none relative hidden min-h-0 flex-1 flex-col items-end justify-start pt-6 pb-4 sm:flex sm:pt-8 md:pt-10 lg:pt-12 xl:pt-14">
         <DoodleSpark className="absolute left-0 top-4 h-9 w-9 opacity-50 sm:top-6 lg:top-8" />
         <DoodleBubble variant="villi" tail="right" delay={0.15}>
-          I&apos;m Villi—VelocTech Inc.&apos;s AI guide on this site. Ask about our services, proof, or how we work; I answer while you explore.
+          I&apos;m Villi, VelocTech Inc.&apos;s AI guide on this site. Ask about our services, proof, or how we work; I answer while you explore.
         </DoodleBubble>
       </div>
 
       {/* Mobile — Villi only, split above mascot */}
-      <div className="flex w-full max-w-lg flex-col gap-3 px-1 sm:hidden">
-        <div className="flex items-end justify-between gap-3">
-          <DoodleBubble variant="villi" tail="right" delay={0.12} className="max-w-[min(11.5rem,46vw)]">
-            I&apos;m Villi—your AI guide here. Ask about VelocTech anytime.
-          </DoodleBubble>
-          <DoodleBubble variant="villi" tail="left" delay={0.22} className="max-w-[min(11.5rem,46vw)]">
-            Tell me your goal—I&apos;ll map next steps and point you to proof, here or in chat.
-          </DoodleBubble>
-        </div>
+      <div className="flex w-full max-w-md flex-col gap-3 px-1 sm:hidden">
+        <DoodleBubble variant="villi" tail="right" delay={0.12} className="w-full max-w-full">
+            I&apos;m Villi, your AI guide here. Ask about VelocTech anytime.
+        </DoodleBubble>
+        <DoodleBubble variant="villi" tail="left" delay={0.22} className="w-full max-w-full self-end">
+          Tell me your goal. I&apos;ll map next steps and point you to proof, here or in chat.
+        </DoodleBubble>
       </div>
 
       <div className="relative z-20 mx-2 flex h-full min-h-0 shrink-0 items-end justify-center self-stretch sm:mx-6 md:mx-8 lg:mx-12 xl:mx-14">
@@ -202,7 +200,7 @@ export default function ClarrieDialogueDoodles({ children }: { children: React.R
       {/* Villi — right of mascot */}
       <div className="pointer-events-none relative hidden min-w-0 flex-1 flex-col items-start justify-end pb-8 sm:flex sm:pb-10 lg:pb-12">
         <DoodleBubble variant="villi" tail="left" delay={0.35}>
-          Tell me your goal—I&apos;ll mirror how we&apos;d help, send you to the right pages here, and continue in chat for detail.
+          Tell me your goal. I&apos;ll mirror how we&apos;d help, send you to the right pages here, and continue in chat for detail.
         </DoodleBubble>
         <DoodleSpark className="absolute bottom-14 right-0 h-10 w-10 opacity-50 lg:bottom-20" />
       </div>

@@ -2,37 +2,29 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ExternalLink, Github, Sparkles } from 'lucide-react';
+import { ExternalLink, Sparkles } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Enterprise-grade e-commerce solution with real-time inventory management, secure payment processing, and advanced analytics dashboard.',
-      tech: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      liveUrl: '#',
+      title: 'NEXUS Fashion eCommerce',
+      description: 'A next-generation fashion storefront with collections, cart, checkout flow, and an AI shopping assistant, with polished UI and smooth animations.',
+      tech: ['Next.js', 'TypeScript', 'Tailwind'],
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop',
+      liveUrl: 'https://nexus-ecommerce-delta.vercel.app/',
       featured: true
     },
     {
-      title: 'AI Task Manager',
-      description: 'Intelligent task management platform with AI-powered priority suggestions, productivity analytics, and team collaboration features.',
-      tech: ['React', 'Python', 'TensorFlow', 'PostgreSQL'],
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop',
-      liveUrl: '#',
-      featured: false
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'Comprehensive analytics platform for managing multiple social media accounts with automated reporting and insights.',
-      tech: ['TypeScript', 'Express', 'Redis', 'Chart.js'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-      liveUrl: '#',
+      title: 'Café Brand Website',
+      description: 'Premium café brand website with menu highlights, store experience, and hospitality-focused design built for the Pakistan market.',
+      tech: ['Next.js', 'Vercel', 'Responsive'],
+      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop',
+      liveUrl: 'https://cafewebsite-two.vercel.app/',
       featured: false
     },
     {
       title: 'Nonprofit Advocacy Platform',
-      description: 'NGO website for the Pak Palestine Forum (PPF)—community news, advocacy, and resources connecting supporters across Pakistan and Palestine.',
+      description: 'NGO website for the Pak Palestine Forum (PPF), with community news, advocacy, and resources connecting supporters across Pakistan and Palestine.',
       tech: ['Next.js', 'Responsive', 'CMS'],
       image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop',
       liveUrl: 'https://pakpalforum.com/',
@@ -55,11 +47,12 @@ const Projects = () => {
             Selected projects
           </h2>
           <p className="mx-auto max-w-2xl text-pretty text-base text-text-secondary sm:text-lg">
-            Representative builds across commerce, AI-native workflows, nonprofit platforms, and data-heavy interfaces.
+            Selected work from VelocTech Inc. across eCommerce, hospitality, nonprofit advocacy, and polished brand
+            experiences.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:justify-items-stretch">
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
@@ -106,7 +99,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-4 border-t border-border pt-3 sm:gap-5 sm:pt-4">
+                <div className="border-t border-border pt-3 sm:pt-4">
                   <a
                     href={project.liveUrl}
                     target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
@@ -115,13 +108,6 @@ const Projects = () => {
                   >
                     <ExternalLink className="h-4 w-4 shrink-0" aria-hidden />
                     Live site
-                  </a>
-                  <a
-                    href="#"
-                    className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text-primary"
-                  >
-                    <Github className="h-4 w-4 shrink-0" aria-hidden />
-                    Code
                   </a>
                 </div>
               </div>

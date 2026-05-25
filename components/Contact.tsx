@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Loader2 } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -47,9 +47,7 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: FaGithub, url: "https://github.com/yourusername", label: "GitHub" },
     { icon: FaLinkedin, url: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: FaTwitter, url: "https://twitter.com/yourusername", label: "Twitter" },
   ];
 
   return (
@@ -67,11 +65,11 @@ const Contact = () => {
             Get in touch
           </h2>
           <p className="mx-auto max-w-xl text-pretty text-base text-text-secondary sm:text-lg">
-            Tell us about your timeline, constraints, and what success looks like—we reply within one business day.
+            Tell us about your timeline, constraints, and what success looks like. We reply within one business day.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -84,7 +82,7 @@ const Contact = () => {
                 Prefer email?
               </h3>
               <p className="mb-8 text-sm leading-relaxed text-text-secondary sm:text-base">
-                Skip the form—reach us directly. We read every message.
+                Skip the form and reach us directly. We read every message.
               </p>
 
               <div className="space-y-4">
@@ -92,9 +90,9 @@ const Contact = () => {
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-elevated">
                     <Mail className="text-accent" size={18} aria-hidden />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-xs font-medium text-text-muted">Email</p>
-                    <p className="font-semibold text-text-primary">hello@veloctech.com</p>
+                    <p className="break-all font-semibold text-text-primary sm:break-normal">hello@veloctech.com</p>
                   </div>
                 </div>
 
@@ -104,7 +102,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-xs font-medium text-text-muted">Location</p>
-                    <p className="font-semibold text-text-primary">San Francisco, CA</p>
+                    <p className="font-semibold text-text-primary">Islamabad, Pakistan</p>
                   </div>
                 </div>
               </div>

@@ -32,12 +32,12 @@ export default function MarshmallowClarrie({ size = 'md', href = '/chat' }: Mars
 
   return (
     <div
-      className="relative flex items-end justify-center"
-      style={{ width: displayW + pad * 2, minHeight: displayH + pad }}
+      className="relative mx-auto flex w-full max-w-full items-end justify-center"
+      style={{ maxWidth: displayW + pad * 2, minHeight: displayH + pad }}
     >
       <div
-        className="relative z-10 flex flex-col items-center justify-end"
-        style={{ width: displayW, minHeight: displayH }}
+        className="relative z-10 flex w-full max-w-full flex-col items-center justify-end"
+        style={{ maxWidth: displayW, minHeight: displayH }}
       >
         <Link
           href={href}
@@ -48,7 +48,7 @@ export default function MarshmallowClarrie({ size = 'md', href = '/chat' }: Mars
             src="/clarrie-firefly.png"
             width={SRC_W}
             height={SRC_H}
-            alt="Villi, VelocTech Inc. AI assistant — robot mascot with glowing cyan-blue eyes"
+            alt="Villi, VelocTech Inc. AI assistant, robot mascot with glowing cyan-blue eyes"
             className="h-auto w-full max-w-full object-contain object-center drop-shadow-[0_16px_36px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-out group-hover:scale-[1.02] group-active:scale-[0.99]"
             sizes={`(max-width: 640px) ${displayW}px, ${Math.min(displayW, 400)}px`}
             priority={size === 'lg' || size === 'xl'}

@@ -43,7 +43,7 @@ const SimpleTechCube = () => {
     <div className="flex h-full w-full items-center justify-center perspective-1000">
       <div 
         ref={cubeRef}
-        className="relative h-48 w-48 transform-style-3d transition-transform duration-100"
+        className="relative aspect-square h-[min(11rem,38vw)] w-[min(11rem,38vw)] max-h-48 max-w-48 transform-style-3d transition-transform duration-100 sm:h-[min(12rem,32vw)] sm:w-[min(12rem,32vw)]"
       >
         {faces.map((face, index) => (
           <div

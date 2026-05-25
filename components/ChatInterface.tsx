@@ -114,7 +114,8 @@ export default function ChatInterface({ onOpenSidebar }: ChatInterfaceProps) {
           onClick={() => setShowLeadForm(true)}
           className="shrink-0 rounded-lg bg-accent px-3 py-2 text-xs font-medium text-white shadow-lg transition-colors hover:bg-accent/90 sm:px-4 sm:text-sm"
         >
-          Book a Call
+          <span className="sm:hidden">Book</span>
+          <span className="hidden sm:inline">Book a Call</span>
         </button>
       </header>
 

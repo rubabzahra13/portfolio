@@ -10,6 +10,7 @@
   --secondary: #3fb950;
   --tertiary: #79c0ff;
   --canvas-subtle: rgba(1, 4, 9, 0.4);
+  --nav-height: 3.5rem;
 }
 
 ::selection {
@@ -25,7 +26,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Offset for fixed nav */
+  scroll-padding-top: var(--nav-height);
   overflow-x: clip;
 }
 

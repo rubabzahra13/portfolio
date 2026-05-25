@@ -40,9 +40,9 @@ const Testimonials = () => {
               transition={{ duration: 0.28 }}
               className="relative min-w-0 rounded-lg border border-border bg-background p-6 shadow-card sm:p-10 md:p-12"
             >
-              <Quote className="absolute left-5 top-5 h-9 w-9 text-border sm:left-8 sm:top-8 sm:h-11 sm:w-11" aria-hidden />
+              <Quote className="absolute left-4 top-4 h-7 w-7 text-border sm:left-8 sm:top-8 sm:h-11 sm:w-11" aria-hidden />
 
-              <p className="relative z-10 mb-8 pl-0 text-pretty text-base font-normal leading-relaxed text-text-primary sm:mb-10 sm:text-lg md:text-xl">
+              <p className="relative z-10 mb-8 pl-10 text-pretty text-base font-normal leading-relaxed text-text-primary sm:mb-10 sm:pl-14 sm:text-lg md:text-xl">
                 &ldquo;{testimonials[current].text}&rdquo;
               </p>
 

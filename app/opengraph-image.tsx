@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export const runtime = "edge";
 
-export const alt = `${siteConfig.name} — portfolio and software studio`;
+export const alt = `${siteConfig.name}, portfolio and software studio`;
 
 export const size = {
   width: 1200,
@@ -71,7 +71,7 @@ export default function OpenGraphImage() {
             lineHeight: 1.35,
           }}
         >
-          Production-ready apps with Next.js, React, and modern cloud architecture.
+          VelocTech Inc. builds production-ready apps with Next.js, React, and AI.
         </div>
         <div
           style={{

@@ -24,7 +24,7 @@ const ClarrieShowcase = () => {
   }, []);
 
   return (
-    <section id="villi" className="relative min-h-[min(100dvh,720px)] sm:min-h-[640px] lg:min-h-[700px] flex items-center justify-center overflow-x-clip bg-background border-b-2 border-gray-800/50 py-12 sm:py-16">
+    <section id="villi" className="relative flex min-h-0 items-center justify-center overflow-x-clip border-b-2 border-gray-800/50 bg-background py-12 sm:min-h-[640px] sm:py-16 lg:min-h-[700px]">
       {/* Animated Background - Matching Hero Section Vibrancy */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Glowing orbs - same intensity as Hero section */}
@@ -107,7 +107,7 @@ const ClarrieShowcase = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-4 sm:mb-6 flex w-full max-w-full justify-center overflow-x-visible px-2 sm:px-3"
+            className="mb-4 flex w-full max-w-full justify-center overflow-x-clip px-2 sm:mb-6 sm:px-3"
           >
             <ClarrieDialogueDoodles>
               <div className="mascot-breathe flex justify-center">

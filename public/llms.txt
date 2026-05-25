@@ -1,0 +1,15 @@
+# VelocTech Inc.
+
+> VelocTech Inc. is a software engineering studio in Islamabad, Pakistan.
+
+VelocTech Inc. (VelocTech) builds production web applications, eCommerce platforms, and AI-powered products using Next.js, React, TypeScript, and modern cloud architecture.
+
+- Website: set via production deployment
+- Contact: hello@veloctech.com
+- Location: Islamabad, Pakistan
+- AI assistant: Villi AI (on-site chat)
+
+## Primary pages
+
+- Home: portfolio, about, skills, projects, testimonials, contact
+- Chat: Villi AI assistant (explore services and work)

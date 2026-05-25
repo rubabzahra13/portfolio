@@ -22,11 +22,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex min-h-[100dvh] min-h-screen items-center justify-center overflow-x-clip border-b border-border bg-background pt-14 sm:pt-16">
+    <section className="relative overflow-x-clip border-b border-border bg-background pt-14 pb-20 sm:pt-16 sm:pb-24 lg:flex lg:min-h-[100dvh] lg:items-center lg:pb-32">
       <div className="pointer-events-none absolute inset-0">
         <Image
           src="/hero-bg.png"
-          alt=""
+          alt="VelocTech Inc. software engineering studio background"
           fill
           priority
           className="object-cover object-[56%_center] sm:object-[52%_center]"
@@ -40,8 +40,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-[#0d1117]/12 sm:bg-[#0d1117]/8" aria-hidden />
       </div>
 
-      <div className="relative z-10 mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-10 md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap-16">
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div className="flex flex-col items-stretch gap-10 sm:gap-12 md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,17 +49,22 @@ const Hero = () => {
             className="order-2 w-full md:order-1"
           >
             <p className="mb-4 inline-flex items-center rounded-md border border-border bg-elevated px-2.5 py-1 text-xs font-medium uppercase tracking-widest text-text-muted">
-              Software studio
+              VelocTech Inc. software studio
             </p>
 
             <motion.h1
-              className="mb-4 text-balance text-[clamp(1.875rem,4vw+0.5rem,3.25rem)] font-semibold leading-[1.12] tracking-tight text-text-primary sm:mb-5"
+              className="mb-4 text-balance font-semibold leading-[1.12] tracking-tight text-text-primary sm:mb-5"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08, duration: 0.45 }}
             >
-              Production web products,{" "}
-              <span className="text-accent">shipped with care</span>
+              <span className="block text-[clamp(1.75rem,3.5vw+0.5rem,2.5rem)] text-accent">
+                VelocTech Inc.
+              </span>
+              <span className="mt-2 block text-[clamp(1.5rem,3vw+0.35rem,2.125rem)] text-text-primary">
+                Production web products,{" "}
+                <span className="text-text-secondary">shipped with care</span>
+              </span>
             </motion.h1>
 
             <motion.p
@@ -68,8 +73,8 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.14, duration: 0.45 }}
             >
-              Full-stack engineering and applied AI—clear scope, measurable outcomes, and
-              maintainable codebases.
+              VelocTech Inc. delivers full-stack engineering and applied AI, with clear scope,
+              measurable outcomes, and maintainable codebases.
             </motion.p>
 
             <motion.ul
@@ -89,7 +94,7 @@ const Hero = () => {
             </motion.ul>
 
             <motion.div
-              className="flex w-full flex-col gap-3 sm:flex-row sm:items-center"
+              className="flex w-full max-w-full flex-col gap-3 pb-2 sm:flex-row sm:items-center sm:pb-0"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.26, duration: 0.45 }}
@@ -130,7 +135,7 @@ const Hero = () => {
       <motion.button
         type="button"
         onClick={scrollToAbout}
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 rounded-full p-2 text-text-muted transition-colors hover:bg-subtle hover:text-text-primary md:bottom-8"
+        className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 rounded-full p-2 text-text-muted transition-colors hover:bg-subtle hover:text-text-primary lg:flex lg:bottom-10"
         animate={{ y: [0, 4, 0] }}
         transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
         aria-label="Scroll to About"

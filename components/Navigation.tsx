@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+
+const NAV_HEIGHT = 56;
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +16,7 @@ function Navigation() {
       setIsScrolled(window.scrollY > 8);
 
       const sections = ["villi", "about", "skills", "projects", "testimonials", "contact"];
-      const scrollPosition = window.scrollY + 96;
+      const scrollPosition = window.scrollY + NAV_HEIGHT + 8;
 
       let currentSection = "";
 
@@ -23,7 +26,7 @@ function Navigation() {
           const offsetTop = element.offsetTop;
           const offsetBottom = offsetTop + element.offsetHeight;
 
-          if (scrollPosition >= offsetTop - 96 && scrollPosition < offsetBottom - 96) {
+          if (scrollPosition >= offsetTop - (NAV_HEIGHT + 8) && scrollPosition < offsetBottom - (NAV_HEIGHT + 8)) {
             currentSection = sectionId;
             break;
           }
@@ -52,7 +55,7 @@ function Navigation() {
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
-        const offset = 72;
+        const offset = NAV_HEIGHT;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -94,11 +97,15 @@ function Navigation() {
       }`}
     >
       <div className="mx-auto flex h-14 min-w-0 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 sm:h-14">
-        <div className="min-w-0 shrink truncate text-sm font-semibold tracking-tight text-text-primary sm:text-base">
+        <Link
+          href="/"
+          className="min-w-0 shrink truncate text-sm font-semibold tracking-tight text-text-primary transition-colors hover:text-accent sm:text-base"
+          title="VelocTech Inc. home"
+        >
           VelocTech Inc<span className="text-accent">.</span>
-        </div>
+        </Link>
 
-        <div className="hidden flex-wrap items-center justify-end gap-0.5 md:flex">
+        <div className="hidden shrink-0 items-center justify-end gap-0.5 lg:flex">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -113,7 +120,7 @@ function Navigation() {
 
         <button
           type="button"
-          className="rounded-md p-2 text-text-primary transition-colors hover:bg-subtle md:hidden"
+          className="rounded-md p-2 text-text-primary transition-colors hover:bg-subtle lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -136,7 +143,7 @@ function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22 }}
-            className="overflow-hidden border-t border-border bg-background md:hidden"
+            className="overflow-hidden border-t border-border bg-background lg:hidden"
           >
             <div className="flex flex-col gap-0.5 px-2 py-3">
               {navItems.map((item) => (

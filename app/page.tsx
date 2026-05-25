@@ -12,7 +12,7 @@ import ClarrieShowcase from '../components/ClarrieShowcase'
 
 export default function Home() {
   return (
-    <main id="main-content">
+    <main id="main-content" className="min-w-0 overflow-x-clip">
       <Navigation />
       <Hero />
       <About />
